@@ -9,12 +9,13 @@ public class AddProduct extends JFrame {
     private JCheckBox checkBox1;
     private JCheckBox checkBox2;
     private JCheckBox checkBox3;
+    private JTextField textField1;
     private int width = 800, height = 800;
 
     public AddProduct(){
         super("Dodawanie produktu");
         this.setContentPane(this.panel1);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(width,height);
         this.setVisible(true);
         this.setLocationRelativeTo(null);

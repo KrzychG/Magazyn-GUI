@@ -8,7 +8,7 @@ public class UpdateProduct extends JFrame{
     public UpdateProduct(){
         super("Usuwanie produktu");
         this.setContentPane(this.panel1);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(width,height);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
