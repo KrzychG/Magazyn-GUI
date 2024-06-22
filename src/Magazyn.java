@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 
 public class Magazyn extends JFrame{
     private int width = 1000, height = 1000;
+    private String login = Login.login1;
     private JPanel panel1;
     private JButton addButton;
     private JButton readButton;
@@ -11,14 +12,18 @@ public class Magazyn extends JFrame{
     private JButton updateButton;
     private JButton settingsButton;
     private JButton exitButton;
+    private JLabel nazwaUzytkownika;
+    private JPanel panel2;
 
     public Magazyn(){
         super("Magazyn");
+        this.nazwaUzytkownika.setText(login);
         this.setContentPane(this.panel1);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(width,height);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+
 
         exitButton.addActionListener(new ActionListener() {
             @Override
@@ -26,6 +31,7 @@ public class Magazyn extends JFrame{
                 dispose();
                 new Login();
             }
+
         });
         addButton.addActionListener(new ActionListener() {
             @Override
@@ -56,4 +62,5 @@ public class Magazyn extends JFrame{
     public static void main(String[] args) {
         Magazyn magazyn = new Magazyn();
     }
+
 }

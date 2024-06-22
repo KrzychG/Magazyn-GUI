@@ -15,7 +15,8 @@ public class Login extends JFrame{
     private JButton zarejestrujSięButton;
     private JTextField textField2;
     private int width = 400, height = 400;
-    String login1 = "login", haslo1 = "password";
+    static String login1;
+    private static String haslo1;
 
     public Login(){
         super("logowanie");

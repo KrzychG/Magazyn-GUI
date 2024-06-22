@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f6e41f8-0676-48ef-9501-2125bdece55e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Register.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Register.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddProduct.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddProduct.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DeleteProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DeleteProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Login.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BazaDanych.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BazaDanych.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logowanie.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logowanie.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Magazyn.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Magazyn.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Magazyn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Magazyn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReadProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReadProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UpdateProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UpdateProduct.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,9 +50,10 @@
     "Application.UpdateProduct.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "347",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/krzys/IdeaProjects/Kalkulator",
+    "last_opened_file_path": "C:/Users/krzys/OneDrive/Pulpit/Vectors3D-GUI-master",
     "onboarding.tips.debug.path": "C:/Users/krzys/IdeaProjects/Magazyn-GUI/src/Main.java"
   }
 }]]></component>
