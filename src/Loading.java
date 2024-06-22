@@ -7,6 +7,7 @@ public class Loading extends JFrame {
     private JProgressBar progressBar1;
     private JLabel naglowek;
     private JLabel wczywywanie;
+    private JLabel icon;
 
     public Loading() {
         super("Wczytywanie");
@@ -15,7 +16,6 @@ public class Loading extends JFrame {
         this.setSize(width,height);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-
         loading();
     }
     private void loading(){
@@ -32,6 +32,9 @@ public class Loading extends JFrame {
                 counter+=random.nextInt((10-5)+1)+5;
             }
             dispose();
-            Login logowanie = new Login();
+            new Login();
+        }
+        public static void main(String[] args) {
+        Loading okno = new Loading();
         }
 }

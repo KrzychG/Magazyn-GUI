@@ -5,13 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f6e41f8-0676-48ef-9501-2125bdece55e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Loading.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Loading.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Login.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AddProduct.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AddProduct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DeleteProduct.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DeleteProduct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ReadProduct.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ReadProduct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UpdateProduct.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UpdateProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Loading.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loading.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Loading.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loading.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Login.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Magazyn.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Magazyn.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Magazyn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Magazyn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/icons8-warehouse.gif" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,12 +50,20 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.AddProduct.executor": "Run",
+    "Application.DeleteProduct.executor": "Run",
+    "Application.Loading.executor": "Run",
+    "Application.Login.executor": "Run",
+    "Application.Magazyn.executor": "Run",
     "Application.Main.executor": "Run",
+    "Application.ReadProduct.executor": "Run",
+    "Application.ReadProduuct.executor": "Run",
+    "Application.UpdateProduct.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/krzys/IdeaProjects/src",
+    "last_opened_file_path": "C:/Users/krzys/IdeaProjects/Kalkulator",
     "onboarding.tips.debug.path": "C:/Users/krzys/IdeaProjects/Magazyn-GUI/src/Main.java"
   }
 }]]></component>

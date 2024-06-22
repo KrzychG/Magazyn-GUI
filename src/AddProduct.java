@@ -1,26 +1,25 @@
 import javax.swing.*;
 
-public class Magazyn extends JFrame{
-    private int width = 1000, height = 1000;
-    private JPanel panel1;
-    private JButton addButton;
-    private JButton readButton;
-    private JButton deleteButton;
-    private JButton updateButton;
+public class AddProduct extends JFrame {
+
     private JButton settingsButton;
     private JButton exitButton;
+    private JPanel panel1;
+    private JComboBox comboBox1;
+    private JCheckBox checkBox1;
+    private JCheckBox checkBox2;
+    private JCheckBox checkBox3;
+    private int width = 800, height = 800;
 
-    public Magazyn(){
-        super("Magazyn");
+    public AddProduct(){
+        super("Dodawanie produktu");
         this.setContentPane(this.panel1);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(width,height);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-
     }
-
     public static void main(String[] args) {
-        Magazyn magazyn = new Magazyn();
+        AddProduct dodaj = new AddProduct();
     }
 }
