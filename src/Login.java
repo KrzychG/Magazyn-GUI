@@ -36,19 +36,21 @@ public class Login extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 login1 = textField1.getText();
-                haslo1 = passwordField1.getText();
+                haslo1 = new String(passwordField1.getPassword());
                 try {
                     if (correctLogin(login1, haslo1)) {
                         dispose();
-                        new Magazyn();
-                    }
-                    else {
+                        Magazyn magazyn = new Magazyn();
+                        magazyn.nazwaUzytkownika.setText(login1);
+
+
+                    } else {
                         JOptionPane.showMessageDialog(null, "Nie udało się zalogować",
                                 "Logowanie", JOptionPane.ERROR_MESSAGE);
-
                     }
                 } catch (IOException ex) {
-                    throw new RuntimeException(ex);
+                    JOptionPane.showMessageDialog(null, "Wystąpił błąd podczas logowania.",
+                            "Błąd", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -66,22 +68,7 @@ public class Login extends JFrame{
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split("  ");
-                if (parts[0].trim().equals(login.trim()) && parts[1].trim().equals(haslo.trim())) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-
-    private boolean loginExists(String login) throws IOException {
-        String filePath = "Logowanie.txt";
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split("  ");
-                if (parts[0].trim().equals(login.trim())) {
+                if (parts.length >= 2 && parts[0].trim().equals(login.trim()) && parts[1].trim().equals(haslo.trim())) {
                     return true;
                 }
             }

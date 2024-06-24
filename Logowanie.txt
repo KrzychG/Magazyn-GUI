@@ -1,10 +1,5 @@
-Login:	Hasło:
-login	haslo
-login2  haslo2
-login3  haslo3
-ad  ad
+
 login  haslo
-login22  haslo
-login23232423  haslo
-login2222  haslo
-login2137  haslo
+login2  haslo
+login3  hasol
+login4  haslo
