@@ -1,2 +1,9 @@
-login  Artykuły biurowe
-login  Artykuły biurowe
+1. Login	2. Typ przedmiotu	3. Nazwa	4. Ilość	5. Czas przechowania	6. Cena
+
+login  Artykuły biurowe   papier 22  Od 7 do 30 dni
+login,  Odzież,   kurtka,  34,  Powyżej 30 dni
+login,  Odzież,   kurtka,  34,  Od 7 do 30 dni
+login,  Odzież,   kurtka,  34,  Do 7 dni
+login,  Odzież,   kurtka,  34,  Do 7 dni
+login2,  Zabawki,   guwno,  23,  Od 7 do 30 dni
+login2,  Zabawki,   guwno,  23,  Od 7 do 30 dni

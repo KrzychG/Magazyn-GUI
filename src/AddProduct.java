@@ -7,15 +7,16 @@ public class AddProduct extends JFrame {
 
     private JPanel panel1;
     private JComboBox comboBox1;
-    private JCheckBox mniejniz7Box1;
-    private JCheckBox siedemto30Box2;
-    private JCheckBox trzydziesciBox3;
     private JTextField nazwaButton;
     private JButton dodawanieButton;
     private JButton exitButton;
     private JLabel cennikNapis;
     private JLabel naglowekDodawanie;
-    private int width = 800, height = 800;
+    private JCheckBox do7DniCheckBox;
+    private JCheckBox od7Do30CheckBox;
+    private JCheckBox powyżej30DniCheckBox;
+    private JTextField iloscField1;
+    private int width = 1000, height = 800;
 
 
     public AddProduct(){
@@ -30,6 +31,23 @@ public class AddProduct extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String filePath1 = "BazaDanych.txt";
                 String login = Login.login1;
+                String czas = "";
+
+                if(do7DniCheckBox.isSelected()){
+                    czas = do7DniCheckBox.getText();
+                }
+                else if (od7Do30CheckBox.isSelected())
+                {
+                    czas = od7Do30CheckBox.getText();
+                }
+                else if (powyżej30DniCheckBox.isSelected())
+                {
+                    czas = powyżej30DniCheckBox.getText();
+                }
+                else
+                    JOptionPane.showMessageDialog(null, "Proszę wybrać czas przechowania przedmiotu",
+                            "Błąd", JOptionPane.ERROR_MESSAGE);
+
                 try (BufferedReader reader = new BufferedReader(new FileReader(filePath1))) {
                     StringBuilder fileContent = new StringBuilder();
                     String line;
@@ -38,7 +56,10 @@ public class AddProduct extends JFrame {
                         fileContent.append(line).append("\n");
                     }
 
-                    fileContent.append(login).append("  ").append(comboBox1.getSelectedItem().toString()).append("\n");
+
+                    fileContent.append(login).append(",  ").append(comboBox1.getSelectedItem().toString())
+                            .append(",   ").append(nazwaButton.getText()).append(",  ").append(iloscField1.getText()).append(",  ")
+                            .append(czas).append("\n");
 
                     try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath1))) {
                         writer.write(fileContent.toString());
