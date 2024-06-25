@@ -1,5 +1,2 @@
-
-login  haslo
-login2  haslo
-login3  hasol
-login4  haslo
+login,haslo
+login2,haslo

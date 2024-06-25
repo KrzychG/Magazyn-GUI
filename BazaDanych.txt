@@ -1,9 +1,10 @@
-1. Login	2. Typ przedmiotu	3. Nazwa	4. Ilość	5. Czas przechowania	6. Cena
-
-login  Artykuły biurowe   papier 22  Od 7 do 30 dni
-login,  Odzież,   kurtka,  34,  Powyżej 30 dni
-login,  Odzież,   kurtka,  34,  Od 7 do 30 dni
-login,  Odzież,   kurtka,  34,  Do 7 dni
-login,  Odzież,   kurtka,  34,  Do 7 dni
-login2,  Zabawki,   guwno,  23,  Od 7 do 30 dni
-login2,  Zabawki,   guwno,  23,  Od 7 do 30 dni
+Login,Typ przedmiotu,Nazwa przedmiotu,Ilość,Czas przechowania
+login,Artykuły biurowe,dsada,32,Od 7 do 30 dni
+login,Artykuły biurowe,dsada,32,Od 7 do 30 dni
+login,Artykuły biurowe,dsada,32,Od 7 do 30 dni
+login2,Artykuły biurowe,adsad,32,Od 7 do 30 dni
+login2,Artykuły biurowe,adsad,32,Od 7 do 30 dni
+login,Artykuły biurowe,dsa,322,Od 7 do 30 dni
+login,Artykuły biurowe,guwno,2323,Od 7 do 30 dni
+login2,Artykuły biurowe,coś,32,
+login2,Artykuły biurowe,,32,Do 7 dni

@@ -67,7 +67,7 @@ public class Login extends JFrame{
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split("  ");
+                String[] parts = line.split(",");
                 if (parts.length >= 2 && parts[0].trim().equals(login.trim()) && parts[1].trim().equals(haslo.trim())) {
                     return true;
                 }

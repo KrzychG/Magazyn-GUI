@@ -56,7 +56,7 @@ public class Register extends JFrame{
                 }
                 String filePath2 = "Logowanie.txt";
                 try (BufferedWriter writer2 = new BufferedWriter(new FileWriter(filePath2, true))) {
-                    writer2.write(loginField.getText() + "  " + String.valueOf(passwordField.getPassword()));
+                    writer2.write(loginField.getText() + "," + String.valueOf(passwordField.getPassword()));
                     writer2.newLine();
                 } catch (IOException a) {
                     a.printStackTrace();
@@ -79,7 +79,7 @@ public class Register extends JFrame{
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split("  ");
+                String[] parts = line.split(",");
                 if (parts.length >= 2 && parts[0].trim().equals(login.trim())) {
                     return true;
                 }

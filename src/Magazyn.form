@@ -147,8 +147,8 @@
             <properties>
               <background color="-13882580"/>
               <foreground color="-986896"/>
-              <label value="Dodaj produkt"/>
-              <text value="Dodaj produkt"/>
+              <label value="Dodaj przedmiot"/>
+              <text value="Dodaj przedmiot"/>
             </properties>
           </component>
           <component id="d9eb1" class="javax.swing.JButton" binding="readButton">
@@ -158,8 +158,8 @@
             <properties>
               <background color="-13882580"/>
               <foreground color="-986896"/>
-              <label value="Zobacz swoje produkty"/>
-              <text value="Zobacz swoje produkty"/>
+              <label value="Zobacz swoje przedmioty"/>
+              <text value="Zobacz swoje przedmioty"/>
             </properties>
           </component>
           <component id="68645" class="javax.swing.JButton" binding="updateButton">
@@ -169,8 +169,8 @@
             <properties>
               <background color="-13882580"/>
               <foreground color="-986896"/>
-              <label value="Edytuj"/>
-              <text value="Edytuj"/>
+              <label value="Edytuj przedmioty"/>
+              <text value="Edytuj przedmioty"/>
             </properties>
           </component>
           <component id="bd74b" class="javax.swing.JButton" binding="deleteButton">
@@ -180,8 +180,8 @@
             <properties>
               <background color="-13882580"/>
               <foreground color="-986896"/>
-              <label value="Usuń produkt"/>
-              <text value="Usuń produkt"/>
+              <label value="Usuń przedmiot"/>
+              <text value="Usuń przedmiot"/>
             </properties>
           </component>
         </children>

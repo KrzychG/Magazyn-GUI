@@ -10,8 +10,6 @@ public class AddProduct extends JFrame {
     private JTextField nazwaButton;
     private JButton dodawanieButton;
     private JButton exitButton;
-    private JLabel cennikNapis;
-    private JLabel naglowekDodawanie;
     private JCheckBox do7DniCheckBox;
     private JCheckBox od7Do30CheckBox;
     private JCheckBox powyżej30DniCheckBox;
@@ -20,7 +18,7 @@ public class AddProduct extends JFrame {
 
 
     public AddProduct(){
-        super("Dodawanie produktu");
+        super("Dodawanie przedmiotu");
         this.setContentPane(this.panel1);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(width,height);
@@ -31,18 +29,18 @@ public class AddProduct extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String filePath1 = "BazaDanych.txt";
                 String login = Login.login1;
-                String czas = "";
+                String time = "";
 
                 if(do7DniCheckBox.isSelected()){
-                    czas = do7DniCheckBox.getText();
+                    time = do7DniCheckBox.getText();
                 }
                 else if (od7Do30CheckBox.isSelected())
                 {
-                    czas = od7Do30CheckBox.getText();
+                    time = od7Do30CheckBox.getText();
                 }
                 else if (powyżej30DniCheckBox.isSelected())
                 {
-                    czas = powyżej30DniCheckBox.getText();
+                    time = powyżej30DniCheckBox.getText();
                 }
                 else
                     JOptionPane.showMessageDialog(null, "Proszę wybrać czas przechowania przedmiotu",
@@ -57,9 +55,9 @@ public class AddProduct extends JFrame {
                     }
 
 
-                    fileContent.append(login).append(",  ").append(comboBox1.getSelectedItem().toString())
-                            .append(",   ").append(nazwaButton.getText()).append(",  ").append(iloscField1.getText()).append(",  ")
-                            .append(czas).append("\n");
+                    fileContent.append(login).append(",").append(comboBox1.getSelectedItem().toString())
+                            .append(",").append(nazwaButton.getText()).append(",").append(iloscField1.getText()).append(",")
+                            .append(time).append("\n");
 
                     try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath1))) {
                         writer.write(fileContent.toString());
@@ -75,13 +73,6 @@ public class AddProduct extends JFrame {
             }
 
             });
-        comboBox1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-
-            }
-        });
     }
     public static void main(String[] args) {
         AddProduct dodaj = new AddProduct();
