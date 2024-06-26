@@ -9,8 +9,8 @@ import java.util.List;
 
 public class DeleteProduct extends JFrame{
     private JPanel panel1;
-    private JButton exitButton;
     private JTable table1;
+    private JButton exitButton;
     private JTextField nazwaField1;
     private JTextField ileField2;
     private JButton usuńButton;
@@ -41,35 +41,68 @@ public class DeleteProduct extends JFrame{
                 String name = nazwaField1.getText();
                 boolean flag = true;
 
-                int num = Integer.parseInt(ileField2.getText());
+                int num;
+                try {
+                    num = Integer.parseInt(ileField2.getText());
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Proszę wprowadzić prawidłową liczbę.");
+                    return;
+                }
+
+                boolean itemFound = false;
+                boolean enoughItem = true;
 
                 try (BufferedReader reader = new BufferedReader(new FileReader(filePath1))) {
                     String line;
                     while ((line = reader.readLine()) != null) {
                         String[] parts = line.split(",");
-                        if (parts[0].trim().equals(Login.login1.trim()) && parts[2].trim().equals(name.trim()) && flag) {
-                            int num2 = Integer.parseInt(parts[3]) - num;
-                            parts[3] = String.valueOf(num2);
-                            flag = false;
+                        if (parts[0].trim().equals(Login.login1.trim()) && parts[2].trim().equals(name.trim())) {
+                            itemFound = true;
+                            int currentQuantity = Integer.parseInt(parts[3].trim());
+                            if (flag) {
+                                if (currentQuantity >= num) {
+                                    int newQuantity = currentQuantity - num;
+                                    if (newQuantity == 0) {
+                                        continue;
+                                    }
+                                    parts[3] = String.valueOf(newQuantity);
+                                    flag = false;
+                                } else {
+                                    enoughItem = false;
+                                    break;
+                                }
+                            }
                         }
                         fileContent.add(String.join(",", parts));
                     }
 
-                    try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath1))) {
-                        for (String fileLine : fileContent) {
-                            writer.write(fileLine);
-                            writer.newLine();
+                    if (!itemFound) {
+                        JOptionPane.showMessageDialog(null, "Nie znaleziono przedmiotu o podanej nazwie.");
+                    } else if (!enoughItem) {
+                        JOptionPane.showMessageDialog(null, "Nie masz wystarczającej ilości przedmiotów do usunięcia.");
+                    } else {
+                        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath1))) {
+                            for (String fileLine : fileContent) {
+                                writer.write(fileLine);
+                                writer.newLine();
+                            }
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
                         }
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
+
+                        List<String[]> updatedData = readData(filePath1);
+                        updateTableModel(updatedData);
                     }
-
-                    List<String[]> updatedData = readData(filePath1);
-                    updateTableModel(updatedData);
-
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
+            }
+        });
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+
             }
         });
     }
@@ -77,20 +110,15 @@ public class DeleteProduct extends JFrame{
 
     public static List<String[]> readData(String filePath) {
         List<String[]> data = new ArrayList<>();
+        String[] headers = {"Użytkownik", "Kategoria", "Nazwa", "Ilość", "Czas przechowania"};
+        data.add(headers);
+
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
-            boolean isFirstLine = true;
             while ((line = br.readLine()) != null) {
-                if (isFirstLine) {
-                    String[] headers = line.split(",");
-                    data.add(headers);
-                    isFirstLine = false;
-                }
-                else {
-                    String[] row = line.split(",");
-                    if (row.length > 0 && row[0].equals(Login.login1)) {
-                        data.add(row);
-                    }
+                String[] row = line.split(",");
+                if (row.length > 0 && row[0].equals(Login.login1)) {
+                    data.add(row);
                 }
             }
         } catch (IOException e) {

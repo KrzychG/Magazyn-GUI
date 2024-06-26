@@ -26,53 +26,15 @@ public class ReadProduct extends JFrame{
         table1.setBackground(Color.DARK_GRAY);
 
         String filePath = "BazaDanych.txt";
-        List<String[]> data = readData(filePath);
-        updateTableModel(data);
+        List<String[]> data = ReadTable.readData(filePath);
+        ReadTable.updateTableModel(table1, data);
     }
 
 
 
 
 
-    public static List<String[]> readData(String filePath) {
-        List<String[]> data = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            boolean isFirstLine = true;
-            while ((line = br.readLine()) != null) {
-                if (isFirstLine) {
-                    String[] headers = line.split(",");
-                    data.add(headers);
-                    isFirstLine = false;
-                }
-                else {
-                    String[] row = line.split(",");
-                    if (row.length > 0 && row[0].equals(Login.login1)) {
-                        data.add(row);
-                    }
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return data;
-    }
 
-
-    private void updateTableModel(List<String[]> data) {
-        if (data.isEmpty()) return;
-
-        String[] columnNames = data.getFirst();
-        DefaultTableModel model = (DefaultTableModel) table1.getModel();
-        model.setColumnIdentifiers(columnNames);
-        data.removeFirst();
-
-        model.setRowCount(0);
-
-        for (String[] row : data) {
-                model.addRow(row);
-        }
-    }
     public static void main(String[] args) {
         ReadProduct czytaj = new ReadProduct();
     }

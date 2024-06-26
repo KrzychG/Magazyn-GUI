@@ -1,2 +1,1 @@
-Użytkownik,Kategoria,Nazwa,Ilość,Czas przechowania
-login,Artykuły biurowe,guwno,2117,Do 7 dni
+login,e,3,guwno,Od 7 do 30 dni
