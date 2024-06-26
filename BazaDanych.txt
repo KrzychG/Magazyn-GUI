@@ -1,1 +1,2 @@
-login,e,3,guwno,Od 7 do 30 dni
+login2,fds,few,few,Do 7 dni
+login2,Artykuły biurowe,nic,3231,Do 7 dni

@@ -20,7 +20,7 @@ public class UpdateProduct extends JFrame {
     private JCheckBox powyżej30DniCheckBox;
     private JCheckBox od7Do30CheckBox;
     private JButton button1;
-    private int width = 800, height = 800;
+    private int width = 700, height = 800;
 
     public UpdateProduct() {
         super("Edycja produktu");
@@ -38,6 +38,11 @@ public class UpdateProduct extends JFrame {
         String filePath = "BazaDanych.txt";
         List<String[]> data = readData(filePath);
         updateTableModel(data);
+
+
+        if (data.isEmpty() || (data.size() == 1 && data.get(0).length == 0)) {
+            JOptionPane.showMessageDialog(this, "Nie posiadasz aktualnie żadnych przedmiotów", "Informacja", JOptionPane.INFORMATION_MESSAGE);
+        }
 
         table1.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
@@ -57,25 +62,32 @@ public class UpdateProduct extends JFrame {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+
                 int selectedRow = table1.getSelectedRow();
-                if (selectedRow != -1) {
-                    String newCategory = textField1.getText();
-                    String newName = textField2.getText();
-                    String newAmount = textField3.getText();
-                    String newTime = getSelectedTime();
 
-                    if (newCategory.isEmpty() || newName.isEmpty() || newAmount.isEmpty() || newTime.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Wszystkie pola muszą być wypełnione", "Błąd", JOptionPane.ERROR_MESSAGE);
-                        return;
-                    }
-
-                    table1.setValueAt(newCategory, selectedRow, 1);
-                    table1.setValueAt(newName, selectedRow, 2);
-                    table1.setValueAt(newAmount, selectedRow, 3);
-                    table1.setValueAt(newTime, selectedRow, 4);
-
-                    updateFile(filePath);
+                if (selectedRow == -1) {
+                    JOptionPane.showMessageDialog(null, "Proszę wybrać przedmiot do edycji.", "Informacja", JOptionPane.INFORMATION_MESSAGE);
+                    return;
                 }
+
+                String newCategory = textField1.getText();
+                String newName = textField2.getText();
+                String newAmount = textField3.getText();
+                String newTime = getSelectedTime();
+
+                if (newCategory.isEmpty() || newName.isEmpty() || newAmount.isEmpty() || newTime.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Wszystkie pola muszą być wypełnione", "Błąd", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                
+
+                table1.setValueAt(newCategory, selectedRow, 1);
+                table1.setValueAt(newName, selectedRow, 2);
+                table1.setValueAt(newAmount, selectedRow, 3);
+                table1.setValueAt(newTime, selectedRow, 4);
+
+                updateFile(filePath);
             }
         });
 

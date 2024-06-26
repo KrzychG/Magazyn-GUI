@@ -29,7 +29,7 @@
             <properties>
               <background color="-13882580"/>
               <foreground color="-986896"/>
-              <text value="Button"/>
+              <text value="Dodaj"/>
             </properties>
           </component>
           <component id="2379c" class="javax.swing.JLabel">
@@ -77,7 +77,7 @@
             </constraints>
             <properties>
               <foreground color="-986896"/>
-              <text value="Label"/>
+              <text value="Dodawanie przedmiotu"/>
             </properties>
           </component>
           <component id="ad6d1" class="javax.swing.JLabel">
@@ -217,24 +217,24 @@
               <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
-          <component id="7f69e" class="javax.swing.JCheckBox" binding="powyżej30DniCheckBox" default-binding="true">
+          <component id="7f69e" class="javax.swing.JCheckBox" binding="od7Do30CheckBox">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-9868946"/>
               <foreground color="-986896"/>
-              <text value="Powyżej 30 dni"/>
+              <text value="Od 7 do 30 dni"/>
             </properties>
           </component>
-          <component id="4710" class="javax.swing.JCheckBox" binding="od7Do30CheckBox" default-binding="true">
+          <component id="4710" class="javax.swing.JCheckBox" binding="powyżej30DniCheckBox">
             <constraints>
               <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-9868946"/>
               <foreground color="-986896"/>
-              <text value="Od 7 do 30 dni"/>
+              <text value="Powyżej 30 dni"/>
             </properties>
           </component>
           <component id="e5c30" class="javax.swing.JLabel">

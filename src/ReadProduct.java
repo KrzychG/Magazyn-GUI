@@ -1,6 +1,8 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -28,6 +30,17 @@ public class ReadProduct extends JFrame{
         String filePath = "BazaDanych.txt";
         List<String[]> data = ReadTable.readData(filePath);
         ReadTable.updateTableModel(table1, data);
+
+        if (data.isEmpty() || (data.size() == 1 && data.get(0).length == 0)) {
+            JOptionPane.showMessageDialog(this, "Nie posiadasz aktualnie żadnych przedmiotów", "Informacja", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
     }
 
 

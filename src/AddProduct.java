@@ -73,6 +73,12 @@ public class AddProduct extends JFrame {
             }
 
             });
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
     }
     public static void main(String[] args) {
         AddProduct dodaj = new AddProduct();

@@ -14,7 +14,7 @@ public class DeleteProduct extends JFrame{
     private JTextField nazwaField1;
     private JTextField ileField2;
     private JButton usuńButton;
-    private int width = 800, height = 800;
+    private int width = 700, height = 800;
     public DeleteProduct(){
         super("Usuwanie przedmiotu");
         this.setContentPane(this.panel1);
@@ -33,6 +33,11 @@ public class DeleteProduct extends JFrame{
         List<String[]> data = readData(filePath);
         updateTableModel(data);
 
+
+        if (data.isEmpty() || (data.size() == 1 && data.get(0).length == 0)) {
+            JOptionPane.showMessageDialog(this, "Nie posiadasz aktualnie żadnych przedmiotów", "Informacja", JOptionPane.INFORMATION_MESSAGE);
+        }
+
         usuńButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -44,6 +49,10 @@ public class DeleteProduct extends JFrame{
                 int num;
                 try {
                     num = Integer.parseInt(ileField2.getText());
+                    if (num <= 0) {
+                        JOptionPane.showMessageDialog(null, "Liczba przedmiotów do usunięcia nie może być ujemna.");
+                        return;
+                    }
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Proszę wprowadzić prawidłową liczbę.");
                     return;
