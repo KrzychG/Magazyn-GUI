@@ -7,12 +7,8 @@
     <list default="true" id="4f6e41f8-0676-48ef-9501-2125bdece55e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BazaDanych.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BazaDanych.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddProduct.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddProduct.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AddProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DeleteProduct.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/DeleteProduct.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DeleteProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DeleteProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReadProduct.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReadProduct.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReadProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReadProduct.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UpdateProduct.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/UpdateProduct.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UpdateProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UpdateProduct.java" afterDir="false" />
     </list>
@@ -40,29 +36,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.AddProduct.executor": "Run",
-    "Application.DeleteProduct.executor": "Run",
-    "Application.Loading.executor": "Run",
-    "Application.Login.executor": "Run",
-    "Application.Magazyn.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.ReadProduct.executor": "Run",
-    "Application.ReadProduuct.executor": "Run",
-    "Application.Register.executor": "Run",
-    "Application.UpdateProduct.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "250",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/krzys/IdeaProjects/Magazyn-GUI",
-    "onboarding.tips.debug.path": "C:/Users/krzys/IdeaProjects/Magazyn-GUI/src/Main.java",
-    "settings.editor.selected.configurable": "editor.preferences.appearance"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AddProduct.executor&quot;: &quot;Run&quot;,
+    &quot;Application.DeleteProduct.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Loading.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Login.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Magazyn.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ReadProduct.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ReadProduuct.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Register.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UpdateProduct.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;250&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/krzys/OneDrive/Pulpit/Vectors3D-GUI-master&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/krzys/IdeaProjects/Magazyn-GUI/src/Main.java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.appearance&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="DeleteProduct" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DeleteProduct" />

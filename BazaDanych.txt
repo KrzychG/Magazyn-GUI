@@ -1,2 +1,2 @@
-login2,fds,few,few,Do 7 dni
-login2,Artykuły biurowe,nic,3231,Do 7 dni
+login,Artykuły biurowe,dsa,20,Od 7 do 30 dni
+login,Artykuły biurowe,da,1,Do 7 dni

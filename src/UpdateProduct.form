@@ -132,7 +132,7 @@
               <text value="Label"/>
             </properties>
           </component>
-          <component id="454e8" class="javax.swing.JButton" binding="button1" default-binding="true">
+          <component id="454e8" class="javax.swing.JButton" binding="button1">
             <constraints>
               <grid row="7" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>

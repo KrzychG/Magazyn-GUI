@@ -18,7 +18,7 @@ public class AddProduct extends JFrame {
 
 
     public AddProduct(){
-        super("Dodawanie przedmiotu");
+        super("Dodawanie przedmiotów");
         this.setContentPane(this.panel1);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(width,height);

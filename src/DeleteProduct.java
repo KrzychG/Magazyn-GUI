@@ -16,7 +16,7 @@ public class DeleteProduct extends JFrame{
     private JButton usuńButton;
     private int width = 700, height = 800;
     public DeleteProduct(){
-        super("Usuwanie przedmiotu");
+        super("Usuwanie przedmiotów");
         this.setContentPane(this.panel1);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(width,height);

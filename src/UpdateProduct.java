@@ -23,7 +23,7 @@ public class UpdateProduct extends JFrame {
     private int width = 700, height = 800;
 
     public UpdateProduct() {
-        super("Edycja produktu");
+        super("Edycja przedmiotów");
         this.setContentPane(this.panel1);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(width, height);
@@ -76,11 +76,22 @@ public class UpdateProduct extends JFrame {
                 String newAmount = textField3.getText();
                 String newTime = getSelectedTime();
 
-                if (newCategory.isEmpty() || newName.isEmpty() || newAmount.isEmpty() || newTime.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Wszystkie pola muszą być wypełnione", "Błąd", JOptionPane.ERROR_MESSAGE);
+                try {
+                    int amount = Integer.parseInt(newAmount);
+                    if (amount < 0) {
+                        JOptionPane.showMessageDialog(null, "Niepoprawna ilość przedmiotu.", "Błąd", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Wszystkie pola muszą być uzupełnione.", "Błąd", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-                
+
+                if (newCategory.isEmpty() || newName.isEmpty() || newTime.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Kategoria, nazwa i czas przechowania muszą być wypełnione", "Błąd", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
 
                 table1.setValueAt(newCategory, selectedRow, 1);
                 table1.setValueAt(newName, selectedRow, 2);
