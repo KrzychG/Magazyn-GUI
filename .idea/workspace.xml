@@ -5,20 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f6e41f8-0676-48ef-9501-2125bdece55e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BazaDanych.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BazaDanych.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logowanie.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logowanie.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AddProduct.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddProduct.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Database.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DeleteProduct.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/DeleteProduct.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DeleteProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DeleteProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Magazyn.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Magazyn.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ReadProduct.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReadProduct.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ReadProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReadProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UpdateProduct.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/UpdateProduct.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UpdateProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UpdateProduct.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +54,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "386",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "349",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/krzys/IdeaProjects/Magazyn-GUI",
@@ -67,6 +62,20 @@
     "settings.editor.selected.configurable": "editor.preferences.appearance"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="DeleteProduct" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DeleteProduct" />
+      <module name="Magazyn-GUI" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.DeleteProduct" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

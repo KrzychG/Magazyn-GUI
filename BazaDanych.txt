@@ -1,10 +1,2 @@
-Login,Typ przedmiotu,Nazwa przedmiotu,Ilość,Czas przechowania
-login,Artykuły biurowe,dsada,32,Od 7 do 30 dni
-login,Artykuły biurowe,dsada,32,Od 7 do 30 dni
-login,Artykuły biurowe,dsada,32,Od 7 do 30 dni
-login2,Artykuły biurowe,adsad,32,Od 7 do 30 dni
-login2,Artykuły biurowe,adsad,32,Od 7 do 30 dni
-login,Artykuły biurowe,dsa,322,Od 7 do 30 dni
-login,Artykuły biurowe,guwno,2323,Od 7 do 30 dni
-login2,Artykuły biurowe,coś,32,
-login2,Artykuły biurowe,,32,Do 7 dni
+Użytkownik,Kategoria,Nazwa,Ilość,Czas przechowania
+login,Artykuły biurowe,guwno,2117,Do 7 dni

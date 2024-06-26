@@ -112,7 +112,7 @@
             <properties>
               <font name="JetBrains Mono" size="18"/>
               <foreground color="-986896"/>
-              <text value="Wybierz typ produktu do dodania"/>
+              <text value="Wybierz typ przedmiotu do dodania"/>
             </properties>
           </component>
           <component id="ede92" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
@@ -146,7 +146,7 @@
             <properties>
               <font name="JetBrains Mono" size="18"/>
               <foreground color="-986896"/>
-              <text value="Wpisz nazwę produktu"/>
+              <text value="Wpisz nazwę przedmiotu"/>
             </properties>
           </component>
           <component id="8003f" class="javax.swing.JTextField" binding="nazwaButton">
@@ -244,7 +244,7 @@
             <properties>
               <font name="JetBrains Mono" size="18"/>
               <foreground color="-986896"/>
-              <text value="Wybierz okres na jaki chcesz przechować produkt"/>
+              <text value="Wybierz okres na jaki chcesz przechować przedmiot"/>
             </properties>
           </component>
           <hspacer id="f9ce2">

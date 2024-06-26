@@ -2,7 +2,6 @@ import javax.swing.*;
 
 public class UpdateProduct extends JFrame{
     private JPanel panel1;
-    private JButton settingsButton;
     private JButton exitButton;
     private int width = 800, height = 800;
     public UpdateProduct(){
