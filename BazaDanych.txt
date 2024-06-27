@@ -1,2 +1,2 @@
-login,Artykuły biurowe,dsa,20,Od 7 do 30 dni
-login,Artykuły biurowe,da,1,Do 7 dni
+login,2,2,12,Powyżej 30 dni
+login,ds,da,2,Do 7 dni

@@ -49,8 +49,11 @@ public class DeleteProduct extends JFrame{
                 int num;
                 try {
                     num = Integer.parseInt(ileField2.getText());
-                    if (num <= 0) {
+                    if (num <0) {
                         JOptionPane.showMessageDialog(null, "Liczba przedmiotów do usunięcia nie może być ujemna.");
+                        return;
+                    }
+                    else if (num == 0){JOptionPane.showMessageDialog(null, "Liczba przedmiotów do usunięcia musi być większa od zera.");
                         return;
                     }
                 } catch (NumberFormatException ex) {

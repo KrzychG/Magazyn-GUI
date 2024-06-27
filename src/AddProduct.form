@@ -149,7 +149,7 @@
               <text value="Wpisz nazwę przedmiotu"/>
             </properties>
           </component>
-          <component id="8003f" class="javax.swing.JTextField" binding="nazwaButton">
+          <component id="8003f" class="javax.swing.JTextField" binding="nazwaField">
             <constraints>
               <grid row="3" column="1" row-span="1" col-span="13" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>

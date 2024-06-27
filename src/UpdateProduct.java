@@ -77,18 +77,28 @@ public class UpdateProduct extends JFrame {
                 String newTime = getSelectedTime();
 
                 try {
-                    int amount = Integer.parseInt(newAmount);
-                    if (amount < 0) {
-                        JOptionPane.showMessageDialog(null, "Niepoprawna ilość przedmiotu.", "Błąd", JOptionPane.ERROR_MESSAGE);
-                        return;
+                    if (newCategory.isEmpty() || !newCategory.matches("[a-zA-Z]+")) {
+                        throw new Exception("Kategoria musi być napisem.");
                     }
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(null, "Wszystkie pola muszą być uzupełnione.", "Błąd", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
 
-                if (newCategory.isEmpty() || newName.isEmpty() || newTime.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Kategoria, nazwa i czas przechowania muszą być wypełnione", "Błąd", JOptionPane.ERROR_MESSAGE);
+                    if (newName.isEmpty() || !newName.matches("[a-zA-Z]+")) {
+                        throw new Exception("Nazwa musi być napisem.");
+                    }
+
+                    int amount = Integer.parseInt(newAmount);
+                    if (amount <= 0) {
+                        throw new NumberFormatException("Ilość musi być liczbą większą od zera.");
+                    }
+
+                    if (newTime.isEmpty()) {
+                        throw new Exception("Czas przechowania musi być wybrany.");
+                    }
+
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Błąd", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Błąd", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
