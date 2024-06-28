@@ -11,9 +11,9 @@ public class DeleteProduct extends JFrame {
     private JPanel panel1;
     private JTable table1;
     private JButton exitButton;
-    private JTextField nazwaField1;
-    private JTextField ileField2;
-    private JButton usuńButton;
+    private JTextField nameField1;
+    private JTextField numberField2;
+    private JButton delButton;
     private int width = 700, height = 800;
 
     public DeleteProduct() {
@@ -37,22 +37,22 @@ public class DeleteProduct extends JFrame {
             JOptionPane.showMessageDialog(this, "Nie posiadasz aktualnie żadnych przedmiotów", "Informacja", JOptionPane.INFORMATION_MESSAGE);
         }
 
-        usuńButton.addActionListener(new ActionListener() {
+        delButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 List<String> fileContent = new ArrayList<>();
                 String filePath1 = "BazaDanych.txt";
-                String name = nazwaField1.getText();
-                String ile = ileField2.getText();
+                String name = nameField1.getText();
+                String number = numberField2.getText();
                 boolean flag = true;
 
                 int num;
                 try {
-                    if (name.isEmpty() || ile.isEmpty()) {
+                    if (name.isEmpty() || number.isEmpty()) {
                         throw new Exception("Proszę wypełnić wszystkie wymagane pola.");
                     }
                     try {
-                        num = Integer.parseInt(ile);
+                        num = Integer.parseInt(number);
                         if (num <= 0) {
                             throw new Exception("Ilość przedmiotów do usunięcia musi być dodatnia.");
                         }
@@ -124,7 +124,7 @@ public class DeleteProduct extends JFrame {
 
     public static List<String[]> readData(String filePath) {
         List<String[]> data = new ArrayList<>();
-        String[] headers = {"Użytkownik", "Kategoria", "Nazwa", "Ilość", "Dni przechowania", "Cena"};
+        String[] headers = {"Użytkownik", "Kategoria", "Nazwa", "Ilość", "Dni przechowania", "Koszt (zł)", "Data dodania"};
         data.add(headers);
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -157,6 +157,6 @@ public class DeleteProduct extends JFrame {
     }
 
     public static void main(String[] args) {
-        DeleteProduct usun = new DeleteProduct();
+        DeleteProduct delete = new DeleteProduct();
     }
 }

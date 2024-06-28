@@ -54,7 +54,7 @@
               <text value="Nazwa:"/>
             </properties>
           </component>
-          <component id="a6665" class="javax.swing.JTextField" binding="nazwaField1">
+          <component id="a6665" class="javax.swing.JTextField" binding="nameField1">
             <constraints>
               <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -74,7 +74,7 @@
               <text value="Ilość:"/>
             </properties>
           </component>
-          <component id="278da" class="javax.swing.JTextField" binding="ileField2">
+          <component id="278da" class="javax.swing.JTextField" binding="numberField2">
             <constraints>
               <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -85,7 +85,7 @@
               <foreground color="-986896"/>
             </properties>
           </component>
-          <component id="9e77d" class="javax.swing.JButton" binding="usuńButton">
+          <component id="9e77d" class="javax.swing.JButton" binding="delButton">
             <constraints>
               <grid row="3" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>

@@ -5,8 +5,8 @@ public class Loading extends JFrame {
     private int width = 400, height = 400;
     private javax.swing.JPanel JPanel;
     private JProgressBar progressBar1;
-    private JLabel naglowek;
-    private JLabel wczywywanie;
+    private JLabel heading;
+    private JLabel loading;
     private JLabel icon;
 
     public Loading() {
@@ -22,7 +22,7 @@ public class Loading extends JFrame {
         Random random = new Random();
             int counter = 0;
             while (counter <= 100){
-                wczywywanie.setText("Wczytywanie...");
+                loading.setText("Wczytywanie...");
                 progressBar1.setValue(counter);
                 try {
                     Thread.sleep(100);
@@ -31,10 +31,13 @@ public class Loading extends JFrame {
                 }
                 counter+=random.nextInt((10-5)+1)+5;
             }
+        PenaltyCheck.checkPenalty();
             dispose();
             new Login();
         }
+
+
         public static void main(String[] args) {
-        Loading okno = new Loading();
+        Loading loading = new Loading();
         }
 }

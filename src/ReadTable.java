@@ -11,7 +11,7 @@ public class ReadTable {
     private JTable table1;
     public static List<String[]> readData(String filePath) {
         List<String[]> data = new ArrayList<>();
-        String[] headers = {"Użytkownik", "Kategoria", "Nazwa", "Ilość", "Dni przechowania"};
+        String[] headers = {"Użytkownik", "Kategoria", "Nazwa", "Ilość", "Dni przechowania", "Koszt (zł)", "Data dodania"};
         data.add(headers);
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {

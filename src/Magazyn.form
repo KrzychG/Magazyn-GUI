@@ -110,7 +110,7 @@
                   <verticalTextPosition value="3"/>
                 </properties>
               </component>
-              <component id="dc157" class="javax.swing.JLabel" binding="nazwaUzytkownika">
+              <component id="dc157" class="javax.swing.JLabel" binding="userName">
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>

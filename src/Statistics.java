@@ -15,6 +15,10 @@ public class Statistics extends JFrame {
         this.setSize(width,height);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+
+
+        PenaltyCheck.checkPenalty();
+
     }
 
 

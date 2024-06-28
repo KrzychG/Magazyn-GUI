@@ -1,22 +1,20 @@
-import javax.print.attribute.standard.DialogOwner;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-import java.util.Arrays;
 
 public class Register extends JFrame{
     private JTextField loginField;
     private JPasswordField passwordField;
-    private JLabel logowanie;
+    private JLabel logingin;
     private JButton registerButton;
     private JButton exitButton;
-    private JButton wróćDoLogowaniaButton;
+    private JButton backButton;
     private JPanel panel1;
     private int width = 400, height = 400;
 
     public Register(){
-        super("logowanie");
+        super("Rejestracja");
         this.setContentPane(this.panel1);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(width,height);
@@ -28,7 +26,7 @@ public class Register extends JFrame{
                 dispose();
             }
         });
-        wróćDoLogowaniaButton.addActionListener(new ActionListener() {
+        backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();

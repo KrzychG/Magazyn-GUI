@@ -3,16 +3,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Magazyn extends JFrame{
-    private int width = 1000, height = 800;
     private JPanel panel1;
     private JButton addButton;
     private JButton readButton;
     private JButton deleteButton;
     private JButton updateButton;
     private JButton exitButton;
-    public JLabel nazwaUzytkownika;
+    public JLabel userName;
     private JPanel panel2;
     private JButton statisticsButton;
+    private int width = 1000, height = 800;
 
     public Magazyn(){
         super("Magazyn");

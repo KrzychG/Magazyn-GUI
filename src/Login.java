@@ -9,17 +9,17 @@ public class Login extends JFrame{
     private JPanel panel1;
     private JButton loginButton;
     private JButton exitButton;
-    private JLabel logowanie;
+    private JLabel loging;
     private JTextField textField1;
     private JPasswordField passwordField1;
-    private JButton zarejestrujSięButton;
+    private JButton registerButton;
     private JTextField textField2;
     private int width = 400, height = 400;
     static String login1;
     private static String haslo1;
 
     public Login(){
-        super("logowanie");
+        super("Logowanie");
         this.setContentPane(this.panel1);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(width,height);
@@ -41,7 +41,7 @@ public class Login extends JFrame{
                     if (correctLogin(login1, haslo1)) {
                         dispose();
                         Magazyn magazyn = new Magazyn();
-                        magazyn.nazwaUzytkownika.setText(login1);
+                        magazyn.userName.setText(login1);
 
 
                     } else {
@@ -52,9 +52,10 @@ public class Login extends JFrame{
                     JOptionPane.showMessageDialog(null, "Wystąpił błąd podczas logowania.",
                             "Błąd", JOptionPane.INFORMATION_MESSAGE);
                 }
+                PenaltyCheck.checkPenalty();
             }
         });
-        zarejestrujSięButton.addActionListener(new ActionListener() {
+        registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
@@ -75,6 +76,7 @@ public class Login extends JFrame{
         }
         return false;
     }
+
     public static void main(String[] args) {
         Login login = new Login();
     }

@@ -13,7 +13,7 @@ public class ReadProduct extends JFrame{
     private JTable table1;
     private JButton exitButton;
     private JButton button1;
-    private int width = 500, height = 800;
+    private int width = 590, height = 800;
     public ReadProduct() {
         super("Wyświetlanie przedmiotów");
         this.setContentPane(this.panel1);
@@ -49,7 +49,7 @@ public class ReadProduct extends JFrame{
 
 
     public static void main(String[] args) {
-        ReadProduct czytaj = new ReadProduct();
+        ReadProduct read = new ReadProduct();
     }
     }
 

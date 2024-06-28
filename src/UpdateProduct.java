@@ -16,7 +16,6 @@ public class UpdateProduct extends JFrame {
     private JTextField textField2;
     private JTextField textField3;
     private JButton button1;
-    private JTextField czasField4;
     private JComboBox comboBox1;
     private int width = 700, height = 800;
 
@@ -48,7 +47,6 @@ public class UpdateProduct extends JFrame {
                     comboBox1.setSelectedItem(table1.getValueAt(selectedRow, 1).toString());
                     textField2.setText(table1.getValueAt(selectedRow, 2).toString());
                     textField3.setText(table1.getValueAt(selectedRow, 3).toString());
-                    czasField4.setText(table1.getValueAt(selectedRow, 4).toString());
                 }
             }
         });
@@ -56,7 +54,6 @@ public class UpdateProduct extends JFrame {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 int selectedRow = table1.getSelectedRow();
 
                 if (selectedRow == -1) {
@@ -67,19 +64,17 @@ public class UpdateProduct extends JFrame {
                 String newCategory = comboBox1.getSelectedItem().toString();
                 String newName = textField2.getText();
                 String newAmount = textField3.getText();
-                String newTime = czasField4.getText();
 
                 try {
-
-                    if (newCategory.isEmpty() || newName.isEmpty() || newAmount.isEmpty() || newTime.isEmpty()) {
+                    if (newCategory.isEmpty() || newName.isEmpty() || newAmount.isEmpty()) {
                         throw new Exception("Proszę wypełnić wszystkie wymagane pola.");
                     }
 
-                    if (newName.isEmpty() || !newName.matches("[\\p{L} ]+")) {
+                    if (!newName.matches("[\\p{L} ]+")) {
                         throw new Exception("Niepoprawnie określona nazwa przedmiotu.");
                     }
 
-                    int amount, time;
+                    int amount;
                     try {
                         amount = Integer.parseInt(newAmount);
                         if (amount <= 0) {
@@ -88,27 +83,20 @@ public class UpdateProduct extends JFrame {
                     } catch (NumberFormatException nfe) {
                         throw new Exception("Ilość przedmiotów musi być liczbą całkowitą dodatnią.");
                     }
-                    try {
-                        time = Integer.parseInt(newTime);
-                        if (time <= 0) {
-                            throw new Exception("Czas przechowania musi być liczbą większą od zera.");
-                        }
-                    } catch (NumberFormatException nfe) {
-                        throw new Exception("Czas przechowania musi być liczbą całkowitą dodatnią.");
-                    }
-
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, ex.getMessage(), "Błąd", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-
-                String newPrice = CalculatePrice.calculatePrice(Integer.parseInt(newAmount), Integer.parseInt(newTime));
+                String currentStorageTime = table1.getValueAt(selectedRow, 4).toString();
+                String newPrice = CalculatePrice.calculatePrice(Integer.parseInt(newAmount), Integer.parseInt(currentStorageTime));
+                String originalDate = table1.getValueAt(selectedRow, 6).toString();
 
                 table1.setValueAt(newCategory, selectedRow, 1);
                 table1.setValueAt(newName, selectedRow, 2);
                 table1.setValueAt(newAmount, selectedRow, 3);
-                table1.setValueAt(newTime, selectedRow, 4);
+                table1.setValueAt(currentStorageTime, selectedRow, 4);
                 table1.setValueAt(newPrice, selectedRow, 5);
+                table1.setValueAt(originalDate, selectedRow, 6);
 
                 updateFile(filePath);
             }
@@ -124,7 +112,7 @@ public class UpdateProduct extends JFrame {
 
     public static List<String[]> readData(String filePath) {
         List<String[]> data = new ArrayList<>();
-        String[] headers = {"Użytkownik", "Kategoria", "Nazwa", "Ilość", "Dni przechowania", "Cena"};
+        String[] headers = {"Użytkownik", "Kategoria", "Nazwa", "Ilość", "Dni przechowania", "Koszt (zł)", "Data dodania"};
         data.add(headers);
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -176,6 +164,6 @@ public class UpdateProduct extends JFrame {
     }
 
     public static void main(String[] args) {
-        UpdateProduct edytuj = new UpdateProduct();
+        UpdateProduct update = new UpdateProduct();
     }
 }
