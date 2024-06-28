@@ -1,2 +1,1 @@
-login,2,2,12,Powyżej 30 dni
-login,ds,da,2,Do 7 dni
+

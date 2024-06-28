@@ -50,7 +50,7 @@ public class Login extends JFrame{
                     }
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(null, "Wystąpił błąd podczas logowania.",
-                            "Błąd", JOptionPane.ERROR_MESSAGE);
+                            "Błąd", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         });

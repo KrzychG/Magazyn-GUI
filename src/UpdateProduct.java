@@ -16,10 +16,8 @@ public class UpdateProduct extends JFrame {
     private JTextField textField1;
     private JTextField textField2;
     private JTextField textField3;
-    private JCheckBox do7DniCheckBox;
-    private JCheckBox powyżej30DniCheckBox;
-    private JCheckBox od7Do30CheckBox;
     private JButton button1;
+    private JTextField czasField4;
     private int width = 700, height = 800;
 
     public UpdateProduct() {
@@ -51,10 +49,7 @@ public class UpdateProduct extends JFrame {
                     textField1.setText(table1.getValueAt(selectedRow, 1).toString());
                     textField2.setText(table1.getValueAt(selectedRow, 2).toString());
                     textField3.setText(table1.getValueAt(selectedRow, 3).toString());
-                    String czas = table1.getValueAt(selectedRow, 4).toString();
-                    do7DniCheckBox.setSelected(czas.equals("Do 7 dni"));
-                    powyżej30DniCheckBox.setSelected(czas.equals("Powyżej 30 dni"));
-                    od7Do30CheckBox.setSelected(czas.equals("Od 7 do 30 dni"));
+                    czasField4.setText(table1.getValueAt(selectedRow, 4).toString());
                 }
             }
         });
@@ -67,36 +62,47 @@ public class UpdateProduct extends JFrame {
                 int selectedRow = table1.getSelectedRow();
 
                 if (selectedRow == -1) {
-                    JOptionPane.showMessageDialog(null, "Proszę wybrać przedmiot do edycji.", "Informacja", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Proszę wybrać przedmiot do edycji poprzez kliknięcie odpowiedniego wiersza.", "Informacja", JOptionPane.INFORMATION_MESSAGE);
                     return;
                 }
 
                 String newCategory = textField1.getText();
                 String newName = textField2.getText();
                 String newAmount = textField3.getText();
-                String newTime = getSelectedTime();
+                String newTime = czasField4.getText();
 
                 try {
-                    if (newCategory.isEmpty() || !newCategory.matches("[a-zA-Z]+")) {
-                        throw new Exception("Kategoria musi być napisem.");
+
+                    if (newCategory.isEmpty() || newName.isEmpty() || newAmount.isEmpty() || newTime.isEmpty())
+                    {
+                        throw new Exception("Proszę wypełnić wszystkie wymagane pola.");
+                    }
+                    if (newCategory.isEmpty() || !newCategory.matches("[\\p{L} ]+")) {
+                        throw new Exception("Niepoprawnie określona kategoria przedmiotu.");
                     }
 
-                    if (newName.isEmpty() || !newName.matches("[a-zA-Z]+")) {
-                        throw new Exception("Nazwa musi być napisem.");
+                    if (newName.isEmpty() || !newName.matches("[\\p{L} ]+")) {
+                        throw new Exception("Niepoprawnie określona nazwa przedmiotu.");
                     }
 
-                    int amount = Integer.parseInt(newAmount);
-                    if (amount <= 0) {
-                        throw new NumberFormatException("Ilość musi być liczbą większą od zera.");
+                    int amount, time;
+                    try {
+                        amount = Integer.parseInt(newAmount);
+                        if (amount <= 0) {
+                            throw new Exception("Ilość musi być liczbą większą od zera.");
+                        }
+                    } catch (NumberFormatException nfe) {
+                        throw new Exception("Ilość przedmiotów musi być liczbą całkowitą dodatnią.");
+                    }
+                    try {
+                        time = Integer.parseInt(newTime);
+                        if (time <= 0) {
+                            throw new Exception("Czas przechowania musi być liczbą większą od zera.");
+                        }
+                    } catch (NumberFormatException nfe) {
+                        throw new Exception("Czas przechowania musi być liczbą całkowitą dodatnią.");
                     }
 
-                    if (newTime.isEmpty()) {
-                        throw new Exception("Czas przechowania musi być wybrany.");
-                    }
-
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Błąd", JOptionPane.ERROR_MESSAGE);
-                    return;
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, ex.getMessage(), "Błąd", JOptionPane.ERROR_MESSAGE);
                     return;
@@ -120,16 +126,9 @@ public class UpdateProduct extends JFrame {
         });
     }
 
-    private String getSelectedTime() {
-        if (do7DniCheckBox.isSelected()) return "Do 7 dni";
-        if (powyżej30DniCheckBox.isSelected()) return "Powyżej 30 dni";
-        if (od7Do30CheckBox.isSelected()) return "Od 7 do 30 dni";
-        return "";
-    }
-
     public static List<String[]> readData(String filePath) {
         List<String[]> data = new ArrayList<>();
-        String[] headers = {"Użytkownik", "Kategoria", "Nazwa", "Ilość", "Czas przechowania"};
+        String[] headers = {"Użytkownik", "Kategoria", "Nazwa", "Ilość", "Dni przechowania"};
         data.add(headers);
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {

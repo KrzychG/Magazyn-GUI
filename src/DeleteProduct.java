@@ -44,20 +44,27 @@ public class DeleteProduct extends JFrame{
                 List<String> fileContent = new ArrayList<>();
                 String filePath1 = "BazaDanych.txt";
                 String name = nazwaField1.getText();
+                String ile = ileField2.getText();
                 boolean flag = true;
 
                 int num;
                 try {
-                    num = Integer.parseInt(ileField2.getText());
-                    if (num <0) {
-                        JOptionPane.showMessageDialog(null, "Liczba przedmiotów do usunięcia nie może być ujemna.");
-                        return;
+
+                    if(name.isEmpty() || ile.isEmpty()) {
+                        throw new Exception("Proszę wypełnić wszystkie wymagane pola.");
                     }
-                    else if (num == 0){JOptionPane.showMessageDialog(null, "Liczba przedmiotów do usunięcia musi być większa od zera.");
-                        return;
+                    try {
+                        num = Integer.parseInt(ile);
+                        if (num <= 0) {
+                            throw new Exception("Ilość przedmiotów do usunięcia musi być dodatnia.");
+                        }
+                    } catch (NumberFormatException nfe) {
+                        throw new Exception("Ilość przedmiotu musi być licbą całkowitą dodatnią.");
                     }
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(null, "Proszę wprowadzić prawidłową liczbę.");
+
+
+                }catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Błąd", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
@@ -89,9 +96,9 @@ public class DeleteProduct extends JFrame{
                     }
 
                     if (!itemFound) {
-                        JOptionPane.showMessageDialog(null, "Nie znaleziono przedmiotu o podanej nazwie.");
+                        JOptionPane.showMessageDialog(null, "Nie znaleziono przedmiotu o podanej nazwie.", "Błąd", JOptionPane.ERROR_MESSAGE);
                     } else if (!enoughItem) {
-                        JOptionPane.showMessageDialog(null, "Nie masz wystarczającej ilości przedmiotów do usunięcia.");
+                        JOptionPane.showMessageDialog(null, "Nie masz wystarczającej ilości przedmiotów do usunięcia.", "Błąd", JOptionPane.ERROR_MESSAGE);
                     } else {
                         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath1))) {
                             for (String fileLine : fileContent) {
@@ -122,7 +129,7 @@ public class DeleteProduct extends JFrame{
 
     public static List<String[]> readData(String filePath) {
         List<String[]> data = new ArrayList<>();
-        String[] headers = {"Użytkownik", "Kategoria", "Nazwa", "Ilość", "Czas przechowania"};
+        String[] headers = {"Użytkownik", "Kategoria", "Nazwa", "Ilość", "Dni przechowania"};
         data.add(headers);
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {

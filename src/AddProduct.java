@@ -10,10 +10,8 @@ public class AddProduct extends JFrame {
     private JTextField nazwaField;
     private JButton dodawanieButton;
     private JButton exitButton;
-    private JCheckBox do7DniCheckBox;
-    private JCheckBox od7Do30CheckBox;
-    private JCheckBox powyżej30DniCheckBox;
     private JTextField iloscField1;
+    private JTextField dniField1;
     private int width = 1000, height = 800;
 
 
@@ -29,37 +27,45 @@ public class AddProduct extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String filePath1 = "BazaDanych.txt";
                 String login = Login.login1;
-                String time = "";
+                String timeText = dniField1.getText();
                 String nazwa = nazwaField.getText();
                 String iloscText = iloscField1.getText();
                 int ilosc;
+                int time;
 
                 try {
-                    if (nazwa.isEmpty() || iloscText.isEmpty() ||
-                            (!do7DniCheckBox.isSelected() && !od7Do30CheckBox.isSelected() && !powyżej30DniCheckBox.isSelected())) {
+                    if (nazwa.isEmpty() || iloscText.isEmpty() || timeText.isEmpty()) {
                         throw new Exception("Proszę wypełnić wszystkie wymagane pola.");
                     }
 
-                    if (do7DniCheckBox.isSelected()) {
-                        time = do7DniCheckBox.getText();
-                    } else if (od7Do30CheckBox.isSelected()) {
-                        time = od7Do30CheckBox.getText();
-                    } else if (powyżej30DniCheckBox.isSelected()) {
-                        time = powyżej30DniCheckBox.getText();
+                    try {
+                        ilosc = Integer.parseInt(iloscText);
+                        if (ilosc <= 0) {
+                            throw new Exception("Ilość musi być liczbą dodatnią.");
+                        }
+                    } catch (NumberFormatException nfe) {
+                        throw new Exception("Ilość przedmiotu musi musi być liczbą całkowitą dodatnią.");
                     }
 
-                    ilosc = Integer.parseInt(iloscText);
-                    if (ilosc < 0) {
-                        throw new NumberFormatException("Ilość musi być liczbą nieujemną");
+                    try {
+                        time = Integer.parseInt(timeText);
+                        if (time <= 0) {
+                            throw new Exception("Czas przechowania musi być liczbą dodatnią.");
+                        }
+                    } catch (NumberFormatException nfe) {
+                        throw new Exception("Czas przechowania przedmiotu musi być liczbą całkowitą dodatnią.");
                     }
 
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Błąd", JOptionPane.ERROR_MESSAGE);
-                    return;
+                    if (nazwa.isEmpty() || !nazwa.matches("[\\p{L} ]+")) {
+                        throw new Exception("Niepoprawnie określona nazwa przedmiotu.");
+                    }
+
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, ex.getMessage(), "Błąd", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
+
+                String price = calculatePrice(ilosc, time);
 
                 try (BufferedReader reader = new BufferedReader(new FileReader(filePath1))) {
                     StringBuilder fileContent = new StringBuilder();
@@ -71,8 +77,8 @@ public class AddProduct extends JFrame {
 
 
                     fileContent.append(login).append(",").append(comboBox1.getSelectedItem().toString())
-                            .append(",").append(nazwaField.getText()).append(",").append(iloscField1.getText()).append(",")
-                            .append(time).append("\n");
+                            .append(",").append(nazwa).append(",").append(iloscText).append(",")
+                            .append(timeText).append(",").append(price).append("\n");
 
                     try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath1))) {
                         writer.write(fileContent.toString());
@@ -80,8 +86,11 @@ public class AddProduct extends JFrame {
                         ex.printStackTrace();
                     }
 
-                } catch (FileNotFoundException ex) {
-                    throw new RuntimeException(ex);
+                    JOptionPane.showMessageDialog(null,
+                            "Przedmiot został dodany.\n Cena dodania przedmiotu: " + price+" zł",
+                            "Informacja", JOptionPane.INFORMATION_MESSAGE);
+
+
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -95,6 +104,14 @@ public class AddProduct extends JFrame {
             }
         });
     }
+
+    private String calculatePrice(int ilosc, int time) {
+        int calculatedPrice = (10 * time) + (ilosc * 5);
+
+        return Integer.toString(calculatedPrice);
+    }
+
+
     public static void main(String[] args) {
         AddProduct dodaj = new AddProduct();
     }
