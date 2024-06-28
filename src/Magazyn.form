@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="panel1" layout-manager="GridLayoutManager" row-count="3" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="707" height="461"/>
+      <xy x="20" y="20" width="738" height="469"/>
     </constraints>
     <properties>
       <background color="-16777216"/>
@@ -11,7 +11,7 @@
     </properties>
     <border type="none"/>
     <children>
-      <grid id="8998d" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="8998d" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -28,12 +28,25 @@
             <properties>
               <font name="Courier New" size="24" style="1"/>
               <foreground color="-986896"/>
-              <text value="Magazyn"/>
+              <text value="Program Magazyn"/>
+            </properties>
+          </component>
+          <component id="b7f68" class="javax.swing.JButton" binding="generujStatystykiButton" default-binding="true">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-13487561"/>
+              <foreground color="-986896"/>
+              <horizontalTextPosition value="0"/>
+              <icon value="icons8-statistics-100.png"/>
+              <text value="Generuj statystyki"/>
+              <verticalTextPosition value="3"/>
             </properties>
           </component>
         </children>
       </grid>
-      <grid id="ee687" binding="panel2" layout-manager="GridLayoutManager" row-count="7" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="ee687" binding="panel2" layout-manager="GridLayoutManager" row-count="6" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="0" row-span="3" col-span="1" vsize-policy="3" hsize-policy="3" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
@@ -43,23 +56,9 @@
         </properties>
         <border type="none"/>
         <children>
-          <component id="afacd" class="javax.swing.JButton" binding="settingsButton">
-            <constraints>
-              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <background color="-13882580"/>
-              <foreground color="-986896"/>
-              <horizontalTextPosition value="0"/>
-              <icon value="icons8-settings-48.png"/>
-              <text value="Ustawienia"/>
-              <verticalAlignment value="0"/>
-              <verticalTextPosition value="3"/>
-            </properties>
-          </component>
           <component id="5ee81" class="javax.swing.JButton" binding="exitButton">
             <constraints>
-              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-13882580"/>
@@ -67,7 +66,7 @@
               <horizontalAlignment value="0"/>
               <horizontalTextPosition value="0"/>
               <icon value="icons8-back-50.png"/>
-              <text value="Wstecz"/>
+              <text value="Wyloguj się"/>
               <verticalTextPosition value="3"/>
             </properties>
           </component>
@@ -78,12 +77,12 @@
           </vspacer>
           <vspacer id="140f4">
             <constraints>
-              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
           <vspacer id="c62b5">
             <constraints>
-              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
           <grid id="41b97" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -130,7 +129,7 @@
           </vspacer>
         </children>
       </grid>
-      <grid id="e725e" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="e725e" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="1" column="1" row-span="2" col-span="2" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -142,46 +141,68 @@
         <children>
           <component id="2cab1" class="javax.swing.JButton" binding="addButton">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <background color="-13882580"/>
+              <background color="-11447978"/>
               <foreground color="-986896"/>
+              <horizontalTextPosition value="0"/>
+              <icon value="icons8-add-100.png"/>
               <label value="Dodaj przedmiot"/>
               <text value="Dodaj przedmiot"/>
+              <verticalTextPosition value="3"/>
             </properties>
           </component>
           <component id="d9eb1" class="javax.swing.JButton" binding="readButton">
             <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <background color="-13882580"/>
+              <background color="-11447978"/>
               <foreground color="-986896"/>
+              <horizontalTextPosition value="0"/>
+              <icon value="icons8-view-100.png"/>
               <label value="Zobacz swoje przedmioty"/>
               <text value="Zobacz swoje przedmioty"/>
+              <verticalTextPosition value="3"/>
             </properties>
           </component>
           <component id="68645" class="javax.swing.JButton" binding="updateButton">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <background color="-13882580"/>
+              <background color="-11447978"/>
               <foreground color="-986896"/>
+              <horizontalTextPosition value="0"/>
+              <icon value="icons8-edit-100.png"/>
               <label value="Edytuj przedmioty"/>
               <text value="Edytuj przedmioty"/>
+              <verticalTextPosition value="3"/>
             </properties>
           </component>
           <component id="bd74b" class="javax.swing.JButton" binding="deleteButton">
             <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <background color="-13882580"/>
+              <background color="-11447978"/>
               <foreground color="-986896"/>
+              <horizontalTextPosition value="0"/>
+              <icon value="icons8-remove-100.png"/>
               <label value="Usuń przedmiot"/>
               <text value="Usuń przedmiot"/>
+              <verticalTextPosition value="3"/>
+            </properties>
+          </component>
+          <component id="1894d" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Courier New" size="24" style="1"/>
+              <foreground color="-986896"/>
+              <text value="Menu"/>
             </properties>
           </component>
         </children>

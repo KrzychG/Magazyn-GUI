@@ -109,7 +109,10 @@
             <properties>
               <background color="-13882580"/>
               <foreground color="-986896"/>
+              <horizontalTextPosition value="0"/>
+              <icon value="icons8-edit-50.png"/>
               <text value="Edytuj"/>
+              <verticalTextPosition value="3"/>
             </properties>
           </component>
           <component id="17ae7" class="javax.swing.JButton" binding="exitButton">

@@ -12,7 +12,7 @@ public class AddProduct extends JFrame {
     private JButton exitButton;
     private JTextField iloscField1;
     private JTextField dniField1;
-    private int width = 1000, height = 800;
+    private int width = 1000, height = 500;
 
 
     public AddProduct(){

@@ -3,16 +3,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Magazyn extends JFrame{
-    private int width = 1000, height = 1000;
+    private int width = 1000, height = 800;
     private JPanel panel1;
     private JButton addButton;
     private JButton readButton;
     private JButton deleteButton;
     private JButton updateButton;
-    private JButton settingsButton;
     private JButton exitButton;
     public JLabel nazwaUzytkownika;
     private JPanel panel2;
+    private JButton generujStatystykiButton;
 
     public Magazyn(){
         super("Magazyn");
@@ -53,6 +53,12 @@ public class Magazyn extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 new DeleteProduct();
+            }
+        });
+        generujStatystykiButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }
