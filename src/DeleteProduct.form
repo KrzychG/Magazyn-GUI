@@ -31,7 +31,7 @@
               <foreground color="-986896"/>
               <horizontalAlignment value="0"/>
               <horizontalTextPosition value="0"/>
-              <icon value="icons8-back-50.png"/>
+              <icon value="icons/icons8-back-50.png"/>
               <text value="Wstecz"/>
               <verticalTextPosition value="3"/>
             </properties>
@@ -93,7 +93,7 @@
               <background color="-13882580"/>
               <foreground color="-986896"/>
               <horizontalTextPosition value="0"/>
-              <icon value="icons8-remove-50.png"/>
+              <icon value="icons/icons8-remove-50.png"/>
               <text value="Usuń"/>
               <verticalTextPosition value="3"/>
             </properties>

@@ -7,7 +7,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DeleteProduct extends JFrame{
+public class DeleteProduct extends JFrame {
     private JPanel panel1;
     private JTable table1;
     private JButton exitButton;
@@ -15,14 +15,14 @@ public class DeleteProduct extends JFrame{
     private JTextField ileField2;
     private JButton usuńButton;
     private int width = 700, height = 800;
-    public DeleteProduct(){
+
+    public DeleteProduct() {
         super("Usuwanie przedmiotów");
         this.setContentPane(this.panel1);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        this.setSize(width,height);
+        this.setSize(width, height);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-
 
         panel1.setLayout(new BoxLayout(panel1, BoxLayout.X_AXIS));
         panel1.add(new JScrollPane(table1));
@@ -33,8 +33,7 @@ public class DeleteProduct extends JFrame{
         List<String[]> data = readData(filePath);
         updateTableModel(data);
 
-
-        if (data.isEmpty() || (data.size() == 1 && data.get(0).length == 0)) {
+        if (data.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nie posiadasz aktualnie żadnych przedmiotów", "Informacja", JOptionPane.INFORMATION_MESSAGE);
         }
 
@@ -49,8 +48,7 @@ public class DeleteProduct extends JFrame{
 
                 int num;
                 try {
-
-                    if(name.isEmpty() || ile.isEmpty()) {
+                    if (name.isEmpty() || ile.isEmpty()) {
                         throw new Exception("Proszę wypełnić wszystkie wymagane pola.");
                     }
                     try {
@@ -59,11 +57,9 @@ public class DeleteProduct extends JFrame{
                             throw new Exception("Ilość przedmiotów do usunięcia musi być dodatnia.");
                         }
                     } catch (NumberFormatException nfe) {
-                        throw new Exception("Ilość przedmiotu musi być licbą całkowitą dodatnią.");
+                        throw new Exception("Ilość przedmiotu musi być liczbą całkowitą dodatnią.");
                     }
-
-
-                }catch (Exception ex) {
+                } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, ex.getMessage(), "Błąd", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
@@ -85,6 +81,7 @@ public class DeleteProduct extends JFrame{
                                         continue;
                                     }
                                     parts[3] = String.valueOf(newQuantity);
+                                    parts[5] = CalculatePrice.calculatePrice(newQuantity, Integer.parseInt(parts[4].trim()));
                                     flag = false;
                                 } else {
                                     enoughItem = false;
@@ -121,15 +118,13 @@ public class DeleteProduct extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
-
             }
         });
     }
 
-
     public static List<String[]> readData(String filePath) {
         List<String[]> data = new ArrayList<>();
-        String[] headers = {"Użytkownik", "Kategoria", "Nazwa", "Ilość", "Dni przechowania"};
+        String[] headers = {"Użytkownik", "Kategoria", "Nazwa", "Ilość", "Dni przechowania", "Cena"};
         data.add(headers);
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -146,14 +141,13 @@ public class DeleteProduct extends JFrame{
         return data;
     }
 
-
     private void updateTableModel(List<String[]> data) {
         if (data.isEmpty()) return;
 
-        String[] columnNames = data.getFirst();
+        String[] columnNames = data.get(0);
         DefaultTableModel model = (DefaultTableModel) table1.getModel();
         model.setColumnIdentifiers(columnNames);
-        data.removeFirst();
+        data.remove(0);
 
         model.setRowCount(0);
 
@@ -161,6 +155,7 @@ public class DeleteProduct extends JFrame{
             model.addRow(row);
         }
     }
+
     public static void main(String[] args) {
         DeleteProduct usun = new DeleteProduct();
     }

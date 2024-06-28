@@ -31,7 +31,7 @@
               <text value="Program Magazyn"/>
             </properties>
           </component>
-          <component id="b7f68" class="javax.swing.JButton" binding="generujStatystykiButton" default-binding="true">
+          <component id="b7f68" class="javax.swing.JButton" binding="statisticsButton">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -39,7 +39,7 @@
               <background color="-13487561"/>
               <foreground color="-986896"/>
               <horizontalTextPosition value="0"/>
-              <icon value="icons8-statistics-100.png"/>
+              <icon value="icons/icons8-statistics-100.png"/>
               <text value="Generuj statystyki"/>
               <verticalTextPosition value="3"/>
             </properties>
@@ -65,7 +65,7 @@
               <foreground color="-986896"/>
               <horizontalAlignment value="0"/>
               <horizontalTextPosition value="0"/>
-              <icon value="icons8-back-50.png"/>
+              <icon value="icons/icons8-back-50.png"/>
               <text value="Wyloguj się"/>
               <verticalTextPosition value="3"/>
             </properties>
@@ -105,7 +105,7 @@
                   <foreground color="-986896"/>
                   <horizontalAlignment value="0"/>
                   <horizontalTextPosition value="0"/>
-                  <icon value="icons8-user-64.png"/>
+                  <icon value="icons/icons8-user-64.png"/>
                   <text value="Zalogowano jako:"/>
                   <verticalTextPosition value="3"/>
                 </properties>
@@ -147,7 +147,7 @@
               <background color="-11447978"/>
               <foreground color="-986896"/>
               <horizontalTextPosition value="0"/>
-              <icon value="icons8-add-100.png"/>
+              <icon value="icons/icons8-add-100.png"/>
               <label value="Dodaj przedmiot"/>
               <text value="Dodaj przedmiot"/>
               <verticalTextPosition value="3"/>
@@ -161,7 +161,7 @@
               <background color="-11447978"/>
               <foreground color="-986896"/>
               <horizontalTextPosition value="0"/>
-              <icon value="icons8-view-100.png"/>
+              <icon value="icons/icons8-view-100.png"/>
               <label value="Zobacz swoje przedmioty"/>
               <text value="Zobacz swoje przedmioty"/>
               <verticalTextPosition value="3"/>
@@ -175,7 +175,7 @@
               <background color="-11447978"/>
               <foreground color="-986896"/>
               <horizontalTextPosition value="0"/>
-              <icon value="icons8-edit-100.png"/>
+              <icon value="icons/icons8-edit-100.png"/>
               <label value="Edytuj przedmioty"/>
               <text value="Edytuj przedmioty"/>
               <verticalTextPosition value="3"/>
@@ -189,7 +189,7 @@
               <background color="-11447978"/>
               <foreground color="-986896"/>
               <horizontalTextPosition value="0"/>
-              <icon value="icons8-remove-100.png"/>
+              <icon value="icons/icons8-remove-100.png"/>
               <label value="Usuń przedmiot"/>
               <text value="Usuń przedmiot"/>
               <verticalTextPosition value="3"/>

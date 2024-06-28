@@ -31,7 +31,7 @@ public class ReadProduct extends JFrame{
         List<String[]> data = ReadTable.readData(filePath);
         ReadTable.updateTableModel(table1, data);
 
-        if (data.isEmpty() || (data.size() == 1 && data.get(0).length == 0)) {
+        if (data.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nie posiadasz aktualnie żadnych przedmiotów", "Informacja", JOptionPane.INFORMATION_MESSAGE);
         }
 

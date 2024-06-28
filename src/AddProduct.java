@@ -12,7 +12,7 @@ public class AddProduct extends JFrame {
     private JButton exitButton;
     private JTextField iloscField1;
     private JTextField dniField1;
-    private int width = 1000, height = 500;
+    private int width = 700, height = 500;
 
 
     public AddProduct(){
@@ -65,7 +65,7 @@ public class AddProduct extends JFrame {
                     return;
                 }
 
-                String price = calculatePrice(ilosc, time);
+                String price = CalculatePrice.calculatePrice(ilosc, time);
 
                 try (BufferedReader reader = new BufferedReader(new FileReader(filePath1))) {
                     StringBuilder fileContent = new StringBuilder();
@@ -104,13 +104,6 @@ public class AddProduct extends JFrame {
             }
         });
     }
-
-    private String calculatePrice(int ilosc, int time) {
-        int calculatedPrice = (10 * time) + (ilosc * 5);
-
-        return Integer.toString(calculatedPrice);
-    }
-
 
     public static void main(String[] args) {
         AddProduct dodaj = new AddProduct();

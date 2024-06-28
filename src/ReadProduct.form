@@ -30,7 +30,7 @@
               <foreground color="-986896"/>
               <horizontalAlignment value="0"/>
               <horizontalTextPosition value="0"/>
-              <icon value="icons8-back-50.png"/>
+              <icon value="icons/icons8-back-50.png"/>
               <text value="Wstecz"/>
               <verticalTextPosition value="3"/>
             </properties>

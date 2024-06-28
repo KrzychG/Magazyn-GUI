@@ -1,0 +1,2 @@
+login,Artykuły biurowe,s,109,1,555
+login,Sprzęt elektroniczny,awd,21,3,135

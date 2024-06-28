@@ -27,17 +27,6 @@
               <text value="Kategoria:"/>
             </properties>
           </component>
-          <component id="d7b64" class="javax.swing.JTextField" binding="textField1" default-binding="true">
-            <constraints>
-              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties>
-              <background color="-11447978"/>
-              <foreground color="-986896"/>
-            </properties>
-          </component>
           <component id="d98fa" class="javax.swing.JLabel">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
@@ -95,11 +84,11 @@
           </hspacer>
           <component id="ae25b" class="javax.swing.JLabel">
             <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <foreground color="-986896"/>
-              <text value="Label"/>
+              <text value="Edycja przedmiotów"/>
             </properties>
           </component>
           <component id="454e8" class="javax.swing.JButton" binding="button1">
@@ -110,7 +99,7 @@
               <background color="-13882580"/>
               <foreground color="-986896"/>
               <horizontalTextPosition value="0"/>
-              <icon value="icons8-edit-50.png"/>
+              <icon value="icons/icons8-edit-50.png"/>
               <text value="Edytuj"/>
               <verticalTextPosition value="3"/>
             </properties>
@@ -124,20 +113,38 @@
               <foreground color="-986896"/>
               <horizontalAlignment value="0"/>
               <horizontalTextPosition value="0"/>
-              <icon value="icons8-back-50.png"/>
+              <icon value="icons/icons8-back-50.png"/>
               <text value="Wstecz"/>
               <verticalTextPosition value="3"/>
             </properties>
           </component>
           <component id="e7ba9" class="javax.swing.JTextField" binding="czasField4">
             <constraints>
-              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
             <properties>
               <background color="-11447978"/>
               <foreground color="-986896"/>
+            </properties>
+          </component>
+          <component id="dd315" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+            <constraints>
+              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <model>
+                <item value="Artykuły biurowe"/>
+                <item value="Artykuły spożywcze"/>
+                <item value="Dokument"/>
+                <item value="Mebel"/>
+                <item value="Narzędzie"/>
+                <item value="Odzież"/>
+                <item value="Sprzęt elektroniczny"/>
+                <item value="Zabawki"/>
+                <item value="Inne"/>
+              </model>
             </properties>
           </component>
         </children>

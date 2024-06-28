@@ -65,7 +65,7 @@
             <properties>
               <background color="-986896"/>
               <foreground color="-986896"/>
-              <icon value="icons8-login-30.png"/>
+              <icon value="icons/icons8-login-30.png"/>
               <text value="Login:"/>
             </properties>
           </component>
@@ -77,7 +77,7 @@
               <background color="-986896"/>
               <enabled value="true"/>
               <foreground color="-986896"/>
-              <icon value="icons8-password-24.png"/>
+              <icon value="icons/icons8-password-24.png"/>
               <text value="Hasło:"/>
             </properties>
           </component>

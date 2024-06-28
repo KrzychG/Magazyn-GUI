@@ -13,11 +13,11 @@ public class UpdateProduct extends JFrame {
     private JPanel panel1;
     private JButton exitButton;
     private JTable table1;
-    private JTextField textField1;
     private JTextField textField2;
     private JTextField textField3;
     private JButton button1;
     private JTextField czasField4;
+    private JComboBox comboBox1;
     private int width = 700, height = 800;
 
     public UpdateProduct() {
@@ -37,8 +37,7 @@ public class UpdateProduct extends JFrame {
         List<String[]> data = readData(filePath);
         updateTableModel(data);
 
-
-        if (data.isEmpty() || (data.size() == 1 && data.get(0).length == 0)) {
+        if (data.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nie posiadasz aktualnie żadnych przedmiotów", "Informacja", JOptionPane.INFORMATION_MESSAGE);
         }
 
@@ -46,7 +45,7 @@ public class UpdateProduct extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 int selectedRow = table1.getSelectedRow();
                 if (selectedRow != -1) {
-                    textField1.setText(table1.getValueAt(selectedRow, 1).toString());
+                    comboBox1.setSelectedItem(table1.getValueAt(selectedRow, 1).toString());
                     textField2.setText(table1.getValueAt(selectedRow, 2).toString());
                     textField3.setText(table1.getValueAt(selectedRow, 3).toString());
                     czasField4.setText(table1.getValueAt(selectedRow, 4).toString());
@@ -58,7 +57,6 @@ public class UpdateProduct extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-
                 int selectedRow = table1.getSelectedRow();
 
                 if (selectedRow == -1) {
@@ -66,19 +64,15 @@ public class UpdateProduct extends JFrame {
                     return;
                 }
 
-                String newCategory = textField1.getText();
+                String newCategory = comboBox1.getSelectedItem().toString();
                 String newName = textField2.getText();
                 String newAmount = textField3.getText();
                 String newTime = czasField4.getText();
 
                 try {
 
-                    if (newCategory.isEmpty() || newName.isEmpty() || newAmount.isEmpty() || newTime.isEmpty())
-                    {
+                    if (newCategory.isEmpty() || newName.isEmpty() || newAmount.isEmpty() || newTime.isEmpty()) {
                         throw new Exception("Proszę wypełnić wszystkie wymagane pola.");
-                    }
-                    if (newCategory.isEmpty() || !newCategory.matches("[\\p{L} ]+")) {
-                        throw new Exception("Niepoprawnie określona kategoria przedmiotu.");
                     }
 
                     if (newName.isEmpty() || !newName.matches("[\\p{L} ]+")) {
@@ -108,11 +102,13 @@ public class UpdateProduct extends JFrame {
                     return;
                 }
 
+                String newPrice = CalculatePrice.calculatePrice(Integer.parseInt(newAmount), Integer.parseInt(newTime));
 
                 table1.setValueAt(newCategory, selectedRow, 1);
                 table1.setValueAt(newName, selectedRow, 2);
                 table1.setValueAt(newAmount, selectedRow, 3);
                 table1.setValueAt(newTime, selectedRow, 4);
+                table1.setValueAt(newPrice, selectedRow, 5);
 
                 updateFile(filePath);
             }
@@ -128,7 +124,7 @@ public class UpdateProduct extends JFrame {
 
     public static List<String[]> readData(String filePath) {
         List<String[]> data = new ArrayList<>();
-        String[] headers = {"Użytkownik", "Kategoria", "Nazwa", "Ilość", "Dni przechowania"};
+        String[] headers = {"Użytkownik", "Kategoria", "Nazwa", "Ilość", "Dni przechowania", "Cena"};
         data.add(headers);
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -144,7 +140,6 @@ public class UpdateProduct extends JFrame {
         }
         return data;
     }
-
 
     private void updateTableModel(List<String[]> data) {
         if (data.isEmpty()) return;

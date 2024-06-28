@@ -12,7 +12,7 @@ public class Magazyn extends JFrame{
     private JButton exitButton;
     public JLabel nazwaUzytkownika;
     private JPanel panel2;
-    private JButton generujStatystykiButton;
+    private JButton statisticsButton;
 
     public Magazyn(){
         super("Magazyn");
@@ -55,11 +55,9 @@ public class Magazyn extends JFrame{
                 new DeleteProduct();
             }
         });
-        generujStatystykiButton.addActionListener(new ActionListener() {
+        statisticsButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
+            public void actionPerformed(ActionEvent e) { new Statistics(); }
         });
     }
 
