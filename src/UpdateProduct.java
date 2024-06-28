@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +18,9 @@ public class UpdateProduct extends JFrame {
     private JTextField textField2;
     private JTextField textField3;
     private JButton button1;
-    private JComboBox comboBox1;
+    private JComboBox<String> comboBox1;
     private int width = 700, height = 800;
+    private List<String[]> originalData;
 
     public UpdateProduct() {
         super("Edycja przedmiotów");
@@ -33,10 +36,10 @@ public class UpdateProduct extends JFrame {
         table1.setBackground(Color.DARK_GRAY);
 
         String filePath = "BazaDanych.txt";
-        List<String[]> data = readData(filePath);
-        updateTableModel(data);
+        originalData = readData(filePath);
+        updateTableModel(originalData);
 
-        if (data.isEmpty()) {
+        if (originalData.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Nie posiadasz aktualnie żadnych przedmiotów", "Informacja", JOptionPane.INFORMATION_MESSAGE);
         }
 
@@ -57,7 +60,9 @@ public class UpdateProduct extends JFrame {
                 int selectedRow = table1.getSelectedRow();
 
                 if (selectedRow == -1) {
-                    JOptionPane.showMessageDialog(null, "Proszę wybrać przedmiot do edycji poprzez kliknięcie odpowiedniego wiersza.", "Informacja", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null,
+                            "Proszę wybrać przedmiot do edycji poprzez kliknięcie odpowiedniego wiersza.",
+                            "Informacja", JOptionPane.INFORMATION_MESSAGE);
                     return;
                 }
 
@@ -98,7 +103,7 @@ public class UpdateProduct extends JFrame {
                 table1.setValueAt(newPrice, selectedRow, 5);
                 table1.setValueAt(originalDate, selectedRow, 6);
 
-                updateFile(filePath);
+                updateFile(filePath, selectedRow);
             }
         });
 
@@ -112,9 +117,6 @@ public class UpdateProduct extends JFrame {
 
     public static List<String[]> readData(String filePath) {
         List<String[]> data = new ArrayList<>();
-        String[] headers = {"Użytkownik", "Kategoria", "Nazwa", "Ilość", "Dni przechowania", "Koszt (zł)", "Data dodania"};
-        data.add(headers);
-
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -132,10 +134,9 @@ public class UpdateProduct extends JFrame {
     private void updateTableModel(List<String[]> data) {
         if (data.isEmpty()) return;
 
-        String[] columnNames = data.get(0);
+        String[] columnNames = {"Użytkownik", "Kategoria", "Nazwa", "Ilość", "Dni przechowania", "Koszt (zł)", "Data dodania"};
         DefaultTableModel model = (DefaultTableModel) table1.getModel();
         model.setColumnIdentifiers(columnNames);
-        data.remove(0);
 
         model.setRowCount(0);
 
@@ -144,20 +145,35 @@ public class UpdateProduct extends JFrame {
         }
     }
 
-    private void updateFile(String filePath) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+    private void updateFile(String filePath, int selectedRow) {
+        try {
+            List<String> fileContent = new ArrayList<>(Files.readAllLines(Paths.get(filePath)));
             DefaultTableModel model = (DefaultTableModel) table1.getModel();
-            for (int i = 0; i < model.getRowCount(); i++) {
-                StringBuilder line = new StringBuilder();
-                for (int j = 0; j < model.getColumnCount(); j++) {
-                    line.append(model.getValueAt(i, j).toString());
-                    if (j < model.getColumnCount() - 1) {
-                        line.append(",");
+            StringBuilder updatedLine = new StringBuilder();
+            for (int j = 0; j < model.getColumnCount(); j++) {
+                updatedLine.append(model.getValueAt(selectedRow, j).toString());
+                if (j < model.getColumnCount() - 1) {
+                    updatedLine.append(",");
+                }
+            }
+
+            String user = Login.login1;
+            for (int i = 0; i < fileContent.size(); i++) {
+                String[] parts = fileContent.get(i).split(",");
+                if (parts.length > 0 && parts[0].equals(user)) {
+                    if (originalData.get(selectedRow)[1].equals(parts[1]) &&
+                            originalData.get(selectedRow)[2].equals(parts[2]) &&
+                            originalData.get(selectedRow)[3].equals(parts[3]) &&
+                            originalData.get(selectedRow)[4].equals(parts[4]) &&
+                            originalData.get(selectedRow)[5].equals(parts[5]) &&
+                            originalData.get(selectedRow)[6].equals(parts[6])) {
+                        fileContent.set(i, updatedLine.toString());
+                        break;
                     }
                 }
-                writer.write(line.toString());
-                writer.newLine();
             }
+
+            Files.write(Paths.get(filePath), fileContent);
         } catch (IOException e) {
             e.printStackTrace();
         }
