@@ -7,6 +7,19 @@
     <list default="true" id="4f6e41f8-0676-48ef-9501-2125bdece55e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BazaDanych.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BazaDanych.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logowanie.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logowanie.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/penalties.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CalculatePrice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CalculatePrice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DeleteProduct.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/DeleteProduct.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DeleteProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DeleteProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Loading.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loading.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PenaltyCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PenaltyCheck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReadProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReadProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReadTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReadTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Statistics.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Statistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statistics.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UpdateProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UpdateProduct.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +36,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/PenaltyCheck.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -53,7 +69,7 @@
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "293",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/krzys/IdeaProjects/Magazyn-GUI",
+    "last_opened_file_path": "C:/Users/krzys/OneDrive/Pulpit/Vectors3D-GUI-master",
     "onboarding.tips.debug.path": "C:/Users/krzys/IdeaProjects/Magazyn-GUI/src/Main.java",
     "settings.editor.selected.configurable": "editor.preferences.appearance"
   }

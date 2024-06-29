@@ -12,7 +12,6 @@ public class ReadProduct extends JFrame{
     private JPanel panel1;
     private JTable table1;
     private JButton exitButton;
-    private JButton button1;
     private int width = 590, height = 800;
     public ReadProduct() {
         super("Wyświetlanie przedmiotów");
@@ -32,7 +31,8 @@ public class ReadProduct extends JFrame{
         ReadTable.updateTableModel(table1, data);
 
         if (data.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Nie posiadasz aktualnie żadnych przedmiotów", "Informacja", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Nie posiadasz aktualnie żadnych przedmiotów",
+                    "Informacja", JOptionPane.INFORMATION_MESSAGE);
         }
 
         exitButton.addActionListener(new ActionListener() {

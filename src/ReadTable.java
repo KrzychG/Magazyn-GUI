@@ -13,7 +13,6 @@ public class ReadTable {
         List<String[]> data = new ArrayList<>();
         String[] headers = {"Użytkownik", "Kategoria", "Nazwa", "Ilość", "Dni przechowania", "Koszt (zł)", "Data dodania"};
         data.add(headers);
-
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -36,7 +35,6 @@ public class ReadTable {
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         model.setColumnIdentifiers(columnNames);
         data.removeFirst();
-
         model.setRowCount(0);
 
         for (String[] row : data) {

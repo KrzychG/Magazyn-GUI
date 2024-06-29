@@ -18,7 +18,7 @@ public class Loading extends JFrame {
         this.setLocationRelativeTo(null);
         loading();
     }
-    private void loading(){
+    public void loading(){
         Random random = new Random();
             int counter = 0;
             while (counter <= 100){

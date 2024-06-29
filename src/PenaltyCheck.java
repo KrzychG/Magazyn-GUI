@@ -6,8 +6,7 @@ import java.util.Set;
 
 public class PenaltyCheck {
     public static String filePath = "BazaDanych.txt";
-    public static String penaltiesPath = "penalties.txt";
-    public static int penalty = 200;
+    public static String penaltiesPath = "Kary.txt";
 
     public static void checkPenalty() {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -20,11 +19,12 @@ public class PenaltyCheck {
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
                 String login = data[0];
+                int itemCount = Integer.parseInt(data[3]);
                 int storageDays = Integer.parseInt(data[4]);
                 LocalDate entryDate = LocalDate.parse(data[6], formatter);
 
                 if (currentDate.isAfter(entryDate.plusDays(storageDays)) && !penalizedUsers.contains(login)) {
-                    addPenalty(login);
+                    addPenalty(login, itemCount);
                 }
             }
         } catch (IOException ex) {
@@ -32,14 +32,14 @@ public class PenaltyCheck {
         }
     }
 
-    public static void addPenalty(String login) {
+    public static void addPenalty(String login, int itemCount) {
+        int penalty = itemCount * 20;
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(penaltiesPath, true))) {
             writer.write(login + "," + penalty + "\n");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
-
 
     public static Set<String> loadPenalizedUsers() {
         Set<String> penalizedUsers = new HashSet<>();
@@ -54,5 +54,4 @@ public class PenaltyCheck {
         }
         return penalizedUsers;
     }
-
 }

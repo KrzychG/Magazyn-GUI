@@ -13,7 +13,6 @@ public class Login extends JFrame{
     private JTextField textField1;
     private JPasswordField passwordField1;
     private JButton registerButton;
-    private JTextField textField2;
     private int width = 400, height = 400;
     static String login1;
     private static String haslo1;
@@ -63,7 +62,7 @@ public class Login extends JFrame{
             }
         });
     }
-    private boolean correctLogin(String login, String haslo) throws IOException {
+    public boolean correctLogin(String login, String haslo) throws IOException {
         String filePath = "Logowanie.txt";
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;

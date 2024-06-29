@@ -40,7 +40,8 @@ public class UpdateProduct extends JFrame {
         updateTableModel(originalData);
 
         if (originalData.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Nie posiadasz aktualnie żadnych przedmiotów", "Informacja", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Nie posiadasz aktualnie żadnych przedmiotów",
+                    "Informacja", JOptionPane.INFORMATION_MESSAGE);
         }
 
         table1.addMouseListener(new MouseAdapter() {
@@ -131,7 +132,7 @@ public class UpdateProduct extends JFrame {
         return data;
     }
 
-    private void updateTableModel(List<String[]> data) {
+    public void updateTableModel(List<String[]> data) {
         if (data.isEmpty()) return;
 
         String[] columnNames = {"Użytkownik", "Kategoria", "Nazwa", "Ilość", "Dni przechowania", "Koszt (zł)", "Data dodania"};
@@ -145,7 +146,7 @@ public class UpdateProduct extends JFrame {
         }
     }
 
-    private void updateFile(String filePath, int selectedRow) {
+    public void updateFile(String filePath, int selectedRow) {
         try {
             List<String> fileContent = new ArrayList<>(Files.readAllLines(Paths.get(filePath)));
             DefaultTableModel model = (DefaultTableModel) table1.getModel();

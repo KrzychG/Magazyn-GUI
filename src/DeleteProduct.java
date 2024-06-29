@@ -1,5 +1,7 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +13,6 @@ public class DeleteProduct extends JFrame {
     private JPanel panel1;
     private JTable table1;
     private JButton exitButton;
-    private JTextField nameField1;
     private JTextField numberField2;
     private JButton delButton;
     private int width = 700, height = 800;
@@ -34,55 +35,69 @@ public class DeleteProduct extends JFrame {
         updateTableModel(data);
 
         if (data.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Nie posiadasz aktualnie żadnych przedmiotów", "Informacja", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Nie posiadasz aktualnie żadnych przedmiotów",
+                    "Informacja", JOptionPane.INFORMATION_MESSAGE);
         }
+
+        table1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        table1.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if (!e.getValueIsAdjusting() && table1.getSelectedRow() != -1) {
+                    numberField2.setText("");
+                }
+            }
+        });
 
         delButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                List<String> fileContent = new ArrayList<>();
-                String filePath1 = "BazaDanych.txt";
-                String name = nameField1.getText();
-                String number = numberField2.getText();
-                boolean flag = true;
+                int selectedRow = table1.getSelectedRow();
+                if (selectedRow == -1) {
+                    JOptionPane.showMessageDialog(null, "Proszę wybrać przedmiot z tabeli.",
+                            "Błąd", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
 
+                String number = numberField2.getText();
                 int num;
                 try {
-                    if (name.isEmpty() || number.isEmpty()) {
-                        throw new Exception("Proszę wypełnić wszystkie wymagane pola.");
+                    if (number.isEmpty()) {
+                        throw new Exception("Proszę wypełnić pole ilości.");
                     }
-                    try {
-                        num = Integer.parseInt(number);
-                        if (num <= 0) {
-                            throw new Exception("Ilość przedmiotów do usunięcia musi być dodatnia.");
-                        }
-                    } catch (NumberFormatException nfe) {
-                        throw new Exception("Ilość przedmiotu musi być liczbą całkowitą dodatnią.");
+                    num = Integer.parseInt(number);
+                    if (num <= 0) {
+                        throw new Exception("Ilość przedmiotów do usunięcia musi być dodatnia.");
                     }
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Nie można wprowadzić tekstu. Proszę wprowadzić liczbę.",
+                            "Błąd", JOptionPane.ERROR_MESSAGE);
+                    return;
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, ex.getMessage(), "Błąd", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
-                boolean itemFound = false;
+                String filePath1 = "BazaDanych.txt";
+                List<String> fileContent = new ArrayList<>();
                 boolean enoughItem = true;
 
                 try (BufferedReader reader = new BufferedReader(new FileReader(filePath1))) {
                     String line;
                     while ((line = reader.readLine()) != null) {
                         String[] parts = line.split(",");
-                        if (parts[0].trim().equals(Login.login1.trim()) && parts[2].trim().equals(name.trim())) {
-                            itemFound = true;
-                            int currentQuantity = Integer.parseInt(parts[3].trim());
-                            if (flag) {
-                                if (currentQuantity >= num) {
-                                    int newQuantity = currentQuantity - num;
-                                    if (newQuantity == 0) {
+                        if (parts[0].trim().equals(Login.login1.trim())) {
+                            String tableName = table1.getValueAt(selectedRow, 2).toString().trim();
+                            String tableCategory = table1.getValueAt(selectedRow, 1).toString().trim();
+                            if (parts[2].trim().equals(tableName) && parts[1].trim().equals(tableCategory)) {
+                                int currentAmount = Integer.parseInt(parts[3].trim());
+                                if (currentAmount >= num) {
+                                    int newAmount = currentAmount - num;
+                                    if (newAmount == 0) {
                                         continue;
                                     }
-                                    parts[3] = String.valueOf(newQuantity);
-                                    parts[5] = CalculatePrice.calculatePrice(newQuantity, Integer.parseInt(parts[4].trim()));
-                                    flag = false;
+                                    parts[3] = String.valueOf(newAmount);
+                                    parts[5] = CalculatePrice.calculatePrice(newAmount, Integer.parseInt(parts[4].trim()));
                                 } else {
                                     enoughItem = false;
                                     break;
@@ -92,11 +107,12 @@ public class DeleteProduct extends JFrame {
                         fileContent.add(String.join(",", parts));
                     }
 
-                    if (!itemFound) {
-                        JOptionPane.showMessageDialog(null, "Nie znaleziono przedmiotu o podanej nazwie.", "Błąd", JOptionPane.ERROR_MESSAGE);
-                    } else if (!enoughItem) {
-                        JOptionPane.showMessageDialog(null, "Nie masz wystarczającej ilości przedmiotów do usunięcia.", "Błąd", JOptionPane.ERROR_MESSAGE);
-                    } else {
+                    if (!enoughItem) {
+                        JOptionPane.showMessageDialog(null,
+                                "Nie masz wystarczającej ilości przedmiotów do usunięcia.",
+                                "Błąd", JOptionPane.ERROR_MESSAGE);
+                    }
+                    else {
                         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath1))) {
                             for (String fileLine : fileContent) {
                                 writer.write(fileLine);
@@ -114,6 +130,7 @@ public class DeleteProduct extends JFrame {
                 }
             }
         });
+
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -122,7 +139,7 @@ public class DeleteProduct extends JFrame {
         });
     }
 
-    public static List<String[]> readData(String filePath) {
+    public List<String[]> readData(String filePath) {
         List<String[]> data = new ArrayList<>();
         String[] headers = {"Użytkownik", "Kategoria", "Nazwa", "Ilość", "Dni przechowania", "Koszt (zł)", "Data dodania"};
         data.add(headers);
@@ -141,7 +158,7 @@ public class DeleteProduct extends JFrame {
         return data;
     }
 
-    private void updateTableModel(List<String[]> data) {
+    public void updateTableModel(List<String[]> data) {
         if (data.isEmpty()) return;
 
         String[] columnNames = data.get(0);

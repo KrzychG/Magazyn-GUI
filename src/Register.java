@@ -40,13 +40,17 @@ public class Register extends JFrame{
                 String password = new String(passwordField.getPassword());
 
                 if (login.isEmpty() || password.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Proszę wypełnić wszystkie pola.", "Błąd rejestracji", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null,
+                            "Proszę wypełnić wszystkie pola.",
+                            "Błąd rejestracji", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
                 try {
                     if (loginExists(login)) {
-                        JOptionPane.showMessageDialog(null, "Użytkownik o podanym loginie już istnieje.", "Błąd rejestracji", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null,
+                                "Użytkownik o podanym loginie już istnieje.",
+                                "Błąd rejestracji", JOptionPane.ERROR_MESSAGE);
                         return;
                     }
                 } catch (IOException ex) {
@@ -72,7 +76,7 @@ public class Register extends JFrame{
 
         }
 
-    private boolean loginExists(String login) throws IOException {
+    public boolean loginExists(String login) throws IOException {
         String filePath = "Logowanie.txt";
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
